@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Oswald:700|PT+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+<title>VITA FITNESS & SPA</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Oswald', sans-serif;
+}
+#outer {
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+#background:before {
+  content:"";
+  position: absolute;
+  top:0;
+  right:0;
+  left:0;
+  bottom:0;
+  z-index:1;
+  background:linear-gradient(to right,rgba(0,0,0,1), rgba(0,0,0,0.9),rgba(0,0,0,0.5));
+}
+
+#background {
+  left: 0%;
+  background-size: cover;
+  top: 0%;
+  height:100vh;
+  width:100%;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 100px;
+  z-index: 10000;
+  transition: 0.6s;
+}
+header .logo {
+  position: relative;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  font-size: 2em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: 0.6s;
+}
+header #toggle {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+header #toggle:before {
+  content: '';
+  position: absolute;
+  top: 7px;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+}
+header #toggle:after {
+  content: '';
+  position: absolute;
+  bottom: 7px;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+}
+.banner.active header #toggle:before {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%) rotate(45deg);
+}
+.banner.active header #toggle:after {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%) rotate(-45deg);
+}
+.banner {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 100px;
+  display: flex;
+  align-items: center;
+  transition: 0.5s;
+}
+.banner.active {
+  transform: translateX(-400px);
+}
+#navigation {
+  text-align: left;
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 400px;
+  height: 100vh;
+  background: #ffff00;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  transition: 0.5s;
+}
+#navigation.active {
+  right: 0;
+}
+#navigation ul {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+#navigation ul li {
+  list-style: none;
+}
+#navigation ul li a {
+  color: #fff;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 30px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+#navigation ul li a:hover {
+  color: #000;
+}
+.content {
+  max-width: 600px;
+}
+@media (max-width: 767px) {
+  header {
+    padding: 20px 50px;
+  }
+  .banner {
+    padding: 100px 50px 150px;
+  }
+  .banner .logo {
+    font-size: 1.5em;
+  }
+  .banner .content p {
+    font-size: 3em;
+  }
+  .banner .active {
+    transform: translateX(-150px);
+  }
+  #navigation ul li a {
+    font-size: 1.5em;
+    margin: 5px 0;
+    width: 100px;
+  }
+}
+.headline {
+  position: fixed;
+  color: white;
+  font-size: 2.8em;
+  margin-bottom: 330px;
+}
+.line {
+  position: fixed;
+  margin-bottom: 220px;
+}
+.text {
+  position: fixed;
+  color: white;
+  text-align: left;
+  font-size: 16px;
+  font-family: 'Oswald', sans-serif;
+  margin-left: 5px;
+  font-weight: 300;
+}
+.hide {
+  display: none;
+}
+.myDIV:hover + .hide {
+  display: block;
+  color: white;
+}
+.contact h3 {
+  margin-top: 5px;
+  font-size: 18px;
+}
+.contact p {
+  font-size: 12px;
+}
+
+.dropdown-container {
+  position: relative;
+  font-size: 15px;
+}
+
+.dropdown-container .dropdown {
+  position: absolute !important;
+  top: 45px;
+  left: 0;
+  width: 250px;
+  background-color: black;
+  max-height: 0;
+  transition: all .3s ease-in-out;
+  overflow: hidden;
+  z-index: 1000;
+  line-height: 20px;
+}
+
+.dropdown-container .dropdown li {
+  padding: 5px;
+}
+
+.dropdown-container .dropdown li a:hover {
+  color: #ffff00 !important;
+}
+
+.dropdown-container:hover .dropdown {
+  max-height: 1000px;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.mySlides {display:none;}
+</style>
+</head>
+<body>
+
+<div id="outer">
+      <div id="background">
+        <video loop muted autoplay preload="auto">
+          <source src="Video/GymCover.mp4" type="video/mp4"/>
+      </video>
+</div>
+  <section class="banner" id="sec">
+    <header>
+      <a href="index.html" class="logo">FITNESS</a>
+      <div id="toggle" onclick="toggle()"></div>
+    </header>
+    <div class="headline">
+      <h2>VITA FITNESS & SPA</h2>
+    </div>
+    <div class="line">
+      <img src="Slike/Linija.png" alt="Line" style="width: 420px;">
+    <div class="text">
+        <p>Dvorana od 800m2 koja sadrži brojnu opremu, te uključuje i<br>
+           kompletnu ponudu rekvizita za funkcionalni trening, te kineziterapiju.</p>
+             <div class="myDIV" style="margin-top: 7px;"><small><h1>CJENIK</h1></small></div>
+             <div class="hide">TERETANA I GRUPNI TRENINZI : 340kn<br>
+                               DVORANA I SPA : 450kn<br></div>
+    <div class="contact">
+      <h3>KONTAKT</h3>
+      <p style="margin-bottom: 4px;">Vita Fitness & Spa<br>01 659 3130<br>email: info@vitafitness.hr</p>
+    </div>
+    <a href="https://www.google.com/maps/place/VITA+fitness+%26+SPA/@45.7781958,15.9459341,17z/data=!3m1!4b1!4m5!3m4!1s0x4765d4270de2dd81:0xaea45bc468bd9a28!8m2!3d45.7781958!4d15.9481228"
+    style="color: white; text-decoration: none;"><h3>LOKACIJA</h3></a>
+    </div>
+</div>
+
+<div class="w3-content w3-display-container" style="margin-left: 480px; margin-top: 355px; position: fixed;">
+
+<div class="w3-display-container mySlides">
+  <img src="Slike/Vita1.jpg" style="width: 210px; height: 150px;">
+  <img src="Slike/Vita2.jpg" style="width: 210px; height: 150px;">
+  <img src="Slike/Vita3.jpg" style="width: 210px; height: 150px;">
+</div>
+</div>
+
+<script>
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  x[slideIndex-1].style.display = "block";
+}
+</script>
+
+      </section>
+
+
+      <div id="navigation">
+        <ul>
+          <li><a href="index.html">HOME</a><li>
+          <li class="dropdown-container">
+            <a href="crossfit.html">CROSSFIT</a>
+            <ul class="dropdown">
+              <li><a href="Train Lab.html" style="font-size: 20px;">TRAIN LAB</a></li>
+              <li><a href="DSR Omega.html" style="font-size: 20px;">DSR OMEGA</a></li>
+              <li><a href="Superbia.html" style="font-size: 20px;">SUPERBIA</a></li>
+              <li><a href="GoldenGym.html" style="font-size: 20px;">GOLDEN GYM</a></li>
+              <li><a href="CROSSFIT Zagreb.html" style="font-size: 20px;">CROSSFIT ZAGREB</a></li>
+              <li><a href="Crossfit Heartrate.html" style="font-size: 20px;">CROSSFIT HEARTRATE</a></li>
+              <li><a href="Crossfit Maksimir" style="font-size: 20px;">CROSSFIT MAKSIMIR</a></li>
+            </ul>
+          </li>
+          <li class="dropdown-container">
+          <a href="DK Metalac.html">WEIGHTLIFTING</a>
+            <ul class="dropdown">
+              <li><a href="crossfit.html" style="font-size: 20px;">DK METALAC</a></li>
+            </ul>
+          </li>
+          <li class="dropdown-container">
+            <a href="Teretana.html">TERETANA</a>
+            <ul class="dropdown">
+              <li><a href="Gyms4you.html" style="font-size: 20px;">GYMS4YOU</a></li>
+              <li><a href="DSR Omega_Teretana.html" style="font-size: 20px;">DSR OMEGA</a></li>
+              <li><a href="Play.html" style="font-size: 20px;">PLAY FITNESS CENTAR</a></li>
+              <li><a href="Vita.html" style="font-size: 20px;">VITA FITNESS & SPA</a></li>
+              <li><a href="Core Gym.html" style="font-size: 20px;">CORE GYM</a></li>
+              <li><a href="MoFit.html" style="font-size: 20px;">MOFIT</a></li>
+              <li><a href="Forma.html" style="font-size: 20px;">FORMA</a></li>
+              <li><a href="Olimp.html" style="font-size: 20px;">OLIMP CENTAR</a></li>
+            </ul>
+          </li>
+          <li><a href="#">KONTAKT</a><li>
+        </ul>
+      </div>
+
+
+<script type="text/javascript">
+    function toggle(){
+      var sec = document.getElementById('sec');
+      var nav = document.getElementById('navigation');
+      sec.classList.toggle('active');
+      nav.classList.toggle('active');
+    }
+</script>
+      </body>
+      </html>
