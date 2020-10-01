@@ -23,24 +23,44 @@
 #background:before {
   content:"";
   position: absolute;
-  top:0;
-  right:0;
-  left:0;
-  bottom:0;
-  z-index:1;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
   background:linear-gradient(to right,rgba(0,0,0,1), rgba(0,0,0,0.9),rgba(0,0,0,0.5));
 }
 
 #background {
-  left: 0%;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
   background-size: cover;
-  top: 0%;
-  height:100vh;
-  width:100%;
+  min-height: 100vh;
+  width: 100%;
   overflow: hidden;
-  position: absolute;
+  position: fixed;
   z-index: -1;
 }
+
+@media screen and (min-width: 768px) {
+  #background {
+    max-height: 100vh;
+  }
+}
+
+#background video {
+  position: absolute;
+  left: -5%;
+  right: -5%;
+  bottom: -5%;
+  top: -5%;
+  margin: auto;
+  min-width: 100%;
+  min-height: 100%;
+}
+
 header {
   position: absolute;
   top: 0;
@@ -48,7 +68,7 @@ header {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 40px 100px;
+  padding: 40px 78px;
   z-index: 10000;
   transition: 0.6s;
 }
@@ -98,14 +118,18 @@ header #toggle:after {
   position: relative;
   width: 100%;
   min-height: 100vh;
-  padding: 100px;
+  padding: 75px;
   display: flex;
   align-items: center;
   transition: 0.5s;
 }
-.banner.active {
-  transform: translateX(-400px);
+
+@media screen and (min-width: 768px) {
+    .banner.active {
+        transform: translateX(-400px);
+    }
 }
+
 #navigation {
   text-align: left;
   position: fixed;
@@ -141,9 +165,17 @@ header #toggle:after {
 #navigation ul li a:hover {
   color: #000;
 }
-.content {
-  max-width: 600px;
+
+.body-content {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
 }
+
+.content {
+    max-width: 600px;
+}
+
 @media (max-width: 767px) {
   header {
     padding: 20px 50px;
@@ -167,30 +199,23 @@ header #toggle:after {
   }
 }
 .headline {
-  position: fixed;
   color: white;
   font-size: 2.8em;
-  margin-bottom: 330px;
+  margin-top: 40px;
+  text-align: left;
 }
 .line {
-  position: fixed;
-  margin-bottom: 220px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  text-align: left;
 }
 .text {
-  position: fixed;
   color: white;
   text-align: left;
   font-size: 16px;
   font-family: 'Oswald', sans-serif;
   margin-left: 5px;
   font-weight: 300;
-}
-.hide {
-  display: none;
-}
-.myDIV:hover + .hide {
-  display: block;
-  color: white;
 }
 .contact h3 {
   margin-top: 5px;
@@ -230,12 +255,124 @@ header #toggle:after {
   max-height: 1000px;
 }
 
-* {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+a.lightbox img {
+  height: 150px;
+  box-shadow: 0px 0px 8px rgba(0,0,0,.3);
 }
 
-.mySlides {display:none;}
+
+#myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg:hover {
+  opacity: 0.7;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 99999;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+.modal-content, #caption {
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)}
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)}
+  to {transform:scale(1)}
+}
+
+.close {
+  position: absolute;
+  top: 80px;
+  right: 270px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+
+.gallery {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.gallery img + img {
+    margin-top: 15px;
+}
+
+.gallery2 {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.gallery2 img + img {
+    margin-top: 15px;
+}
+
+@media screen and (min-width: 768px) {
+    .gallery img + img {
+        margin-top: 0;
+        margin-left: 15px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .body-content {
+        width: 100%;
+    }
+}
+#myDIV {
+  display: none;
+  text-align: left;
+  color: white;
+}
 </style>
 </head>
 <body>
@@ -251,59 +388,84 @@ header #toggle:after {
       <a href="index.html" class="logo">FITNESS</a>
       <div id="toggle" onclick="toggle()"></div>
     </header>
-    <div class="headline">
-      <h2>MoFit</h2>
-    </div>
-    <div class="line">
-      <img src="Slike/Linija.png" alt="Line" style="width: 420px;">
-    <div class="text">
-        <p>Sportski centar koji na 1600m2 nudi  teretanu sa cardio fitnessom,<br>
-           dvorane za aerobne vježbe, les mills grupne vježbe, stijenu za penjanje,<br>
-          stolni tenis, spinning, vanjsku terasu za vježbanje, lime bar i centar za<br>
-          masažu i promicanje zdravlja.<p>
-             <div class="myDIV" style="margin-top: 7px;"><small><h1>CJENIK</h1></small></div>
-             <div class="hide">GRUPNI TRENINZI : 400kn<br>
-                               INDIVIDUALNI TRENINZI : po dogovoru.<br>
-                               OPEN GYM: 500kn</div>
-    <div class="contact">
-      <h3>KONTAKT</h3>
-      <p style="margin-bottom: 4px;">MoFit-Selska<br>01 3012 152<br>email: info@mofit.hr</p>
-      <p style="margin-bottom: 4px;">MoFit-Ilica<br>095 455 6 555<br>email: sportsstudio@mofit.hr</p>
-    </div>
-    <a href="https://www.google.com/maps/d/viewer?msa=0&hl=hr&ie=UTF8&t=m&ll=45.801999000000016%2C15.944510000000006&spn=0.005984%2C0.007918&z=16&source=embed&mid=1RoUlMlDFYKwTsFiVL1e9VptG5xY"
-    style="color: white; text-decoration: none;"><h3>LOKACIJA SELSKA</h3></a>
-    <a href="https://www.google.com/maps/place/MoFit/@45.8019522,15.9426825,17z/data=!3m1!4b1!4m5!3m4!1s0x4765d6c72a056f39:0x146150c07734a101!8m2!3d45.8019522!4d15.9448712"
-    style="color: white; text-decoration: none;"><h3>LOKACIJA ILICA</h3></a>
+
+    <div class="body-content">
+        <div class="headline">
+          <h2>MoFit</h2>
+        </div>
+        <div class="line">
+            <img src="Slike/Linija.png" alt="Line" style="max-width: 420px;">
+        </div>
+
+        <div class="text">
+            <p>Sportski centar koji na 1600m2 nudi  teretanu sa cardio fitnessom,<br>
+               dvorane za aerobne vježbe, les mills grupne vježbe, stijenu za penjanje,<br>
+              stolni tenis, spinning, vanjsku terasu za vježbanje, lime bar i centar za<br>
+              masažu i promicanje zdravlja.<p>
+
+                <button onclick="myFunction()" style="color: white; background-color: black; border: 0; font-size: 18px; margin-top: 5px;"><h3>CJENIK<h3></button>
+                <div id="myDIV">
+                  GRUPNI TRENINZI : 400kn<br>
+                  INDIVIDUALNI TRENINZI : po dogovoru.<br>
+                  OPEN GYM: 500kn
+                </div>
+
+            <div class="contact">
+                <h3>KONTAKT</h3>
+                <p style="margin-bottom: 4px;">MoFit-Selska<br>01 3012 152<br>email: info@mofit.hr</p>
+                <p style="margin-bottom: 4px;">MoFit-Ilica<br>095 455 6 555<br>email: sportsstudio@mofit.hr</p>
+            </div>
+            <a href="https://www.google.com/maps/d/viewer?msa=0&hl=hr&ie=UTF8&t=m&ll=45.801999000000016%2C15.944510000000006&spn=0.005984%2C0.007918&z=16&source=embed&mid=1RoUlMlDFYKwTsFiVL1e9VptG5xY"
+            style="color: white; text-decoration: none;"><h3>LOKACIJA SELSKA</h3></a>
+            <a href="https://www.google.com/maps/place/MoFit/@45.8019522,15.9426825,17z/data=!3m1!4b1!4m5!3m4!1s0x4765d6c72a056f39:0x146150c07734a101!8m2!3d45.8019522!4d15.9448712"
+            style="color: white; text-decoration: none;"><h3>LOKACIJA ILICA</h3></a>
+        </div>
+
+
+        <div class="gallery">
+            <img id="myImg" src="Slike/MoFit1.jpg" alt="mofit" style="width:180px;max-width:190px;">
+            <img id="myImg" src="Slike/MoFit2.jpg" alt="mofit" style="width:180px;max-width:190px;">
+            <img id="myImg" src="Slike/MoFit3.jpg" alt="mofit" style="width:180px;max-width:190px;">
     </div>
 </div>
 
-<div class="w3-content w3-display-container" style="margin-left: 480px; margin-top: 355px; position: fixed;">
 
-<div class="w3-display-container mySlides">
-  <img src="Slike/Mofit1.jpg" style="width: 210px; height: 150px;">
-  <img src="Slike/Mofit2.jpg" style="width: 210px; height: 150px;">
-  <img src="Slike/Mofit3.jpg" style="width: 210px; height: 150px;">
+
+
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
 </div>
-</div>
+
 
 <script>
-var slideIndex = 1;
-showDivs(slideIndex);
-
-function plusDivs(n) {
-  showDivs(slideIndex += n);
-}
-
-function showDivs(n) {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  if (n > x.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = x.length}
-  for (i = 0; i < x.length; i++) {
-     x[i].style.display = "none";
+function myFunction() {
+  var x = document.getElementById("myDIV");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
   }
-  x[slideIndex-1].style.display = "block";
 }
+</script>
+
+<script>
+var modal = document.getElementById("myModal");
+
+var img = document.getElementById("myImg");
+var modalImg = document.getElementById("img01");
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+
+var span = document.getElementsByClassName("close")[0];
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
 </script>
 
       </section>
@@ -319,7 +481,7 @@ function showDivs(n) {
               <li><a href="DSR Omega.html" style="font-size: 20px;">DSR OMEGA</a></li>
               <li><a href="Superbia.html" style="font-size: 20px;">SUPERBIA</a></li>
               <li><a href="GoldenGym.html" style="font-size: 20px;">GOLDEN GYM</a></li>
-              <li><a href="Crossfit Zagreb.html" style="font-size: 20px;">CROSSFIT ZAGREB</a></li>
+              <li><a href="CROSSFIT Zagreb.html" style="font-size: 20px;">CROSSFIT ZAGREB</a></li>
               <li><a href="Crossfit Heartrate.html" style="font-size: 20px;">CROSSFIT HEARTRATE</a></li>
               <li><a href="Crossfit Maksimir" style="font-size: 20px;">CROSSFIT MAKSIMIR</a></li>
             </ul>
