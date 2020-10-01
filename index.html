@@ -72,13 +72,18 @@ header #toggle:after {
   padding: 100px;
   background: url('Slike/COVERP2.jpg');
   background-size: cover;
+  background-position: center;
   display: flex;
   align-items: center;
   transition: 0.5s;
 }
-.banner.active {
-  transform: translateX(-400px);
+
+@media screen and (min-width: 768px) {
+    .banner.active {
+    transform: translateX(-400px);
+    }
 }
+
 #navigation {
   position: fixed;
   top: 0;
