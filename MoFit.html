@@ -4,6 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Oswald:700|PT+Sans&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
 <title>MOFIT</title>
@@ -344,18 +345,6 @@ a.lightbox img {
     margin-top: 15px;
 }
 
-.gallery2 {
-    display: flex;
-    align-items: stretch;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 50px;
-}
-
-.gallery2 img + img {
-    margin-top: 15px;
-}
-
 @media screen and (min-width: 768px) {
     .gallery img + img {
         margin-top: 0;
@@ -372,6 +361,160 @@ a.lightbox img {
   display: none;
   text-align: left;
   color: white;
+}
+
+.row > .column {
+  padding: 0 8px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column {
+  float: left;
+  width: 25%;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+}
+
+.modal-content {
+  position: relative;
+  background-color: black;
+  margin: auto;
+  padding: 0;
+  width: 50%;
+  max-width: 1200px;
+}
+
+.close {
+  color: white;
+  position: absolute;
+  top: 140px;
+  right: 260px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.mySlides {
+  display: none;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 15px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev {
+  left: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+img {
+  margin-bottom: -4px;
+}
+
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+img.hover-shadow {
+  transition: 0.3s;
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.container {
+  float: right;
+  margin-bottom: 120px;
+}
+.fa {
+  height: 32px;
+  font-size: 20px;
+  padding-top: 5px;
+  width: 32px;
+  text-align: center;
+  border: 1px solid white;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+.fa:hover {
+    background-color: #ffff00;
+    color: black;
+    opacity: 0.9;
+    border-color: black;
+}
+
+.fa-facebook {
+  margin-top: 13px;
+  background: black;
+  color: white;
+}
+.fa-instagram {
+  background: black;
+  color: white;
+}
+.fa-google {
+  background: black;
+  color: white;
+}
+.location h3:hover {
+  color: #ffff00;
+}
+.price h3:hover {
+  color: #ffff00;
 }
 </style>
 </head>
@@ -402,40 +545,88 @@ a.lightbox img {
                dvorane za aerobne vježbe, les mills grupne vježbe, stijenu za penjanje,<br>
               stolni tenis, spinning, vanjsku terasu za vježbanje, lime bar i centar za<br>
               masažu i promicanje zdravlja.<p>
-
+                <div class="price">
                 <button onclick="myFunction()" style="color: white; background-color: black; border: 0; font-size: 18px; margin-top: 5px;"><h3>CJENIK<h3></button>
                 <div id="myDIV">
-                  GRUPNI TRENINZI : 400kn<br>
-                  INDIVIDUALNI TRENINZI : po dogovoru.<br>
-                  OPEN GYM: 500kn
+                  TERETANA : 219kn<br>
+                  TERETANA I GRUPE : 286kn
                 </div>
+              </div>
 
-            <div class="contact">
+            <div class="contact" style="margin-bottom: 10px;">
                 <h3>KONTAKT</h3>
                 <p style="margin-bottom: 4px;">MoFit-Selska<br>01 3012 152<br>email: info@mofit.hr</p>
                 <p style="margin-bottom: 4px;">MoFit-Ilica<br>095 455 6 555<br>email: sportsstudio@mofit.hr</p>
             </div>
+            <div class="location">
             <a href="https://www.google.com/maps/d/viewer?msa=0&hl=hr&ie=UTF8&t=m&ll=45.801999000000016%2C15.944510000000006&spn=0.005984%2C0.007918&z=16&source=embed&mid=1RoUlMlDFYKwTsFiVL1e9VptG5xY"
             style="color: white; text-decoration: none;"><h3>LOKACIJA SELSKA</h3></a>
             <a href="https://www.google.com/maps/place/MoFit/@45.8019522,15.9426825,17z/data=!3m1!4b1!4m5!3m4!1s0x4765d6c72a056f39:0x146150c07734a101!8m2!3d45.8019522!4d15.9448712"
             style="color: white; text-decoration: none;"><h3>LOKACIJA ILICA</h3></a>
+            </div>
+            <a href="https://www.facebook.com/MOFIT.hr" class="fa fa-facebook"></a>
+            <a href="https://www.instagram.com/mofitfitnessclub/?igshid=1admj9mme8t90&fbclid=IwAR1psY7S8peBy0wwUfwKyIm9y1qPcoOgUcoYqBSfhvpDTCrIVMEtMRZHH8w" class="fa fa-instagram"></a>
+            <a href="https://www.mofit.hr/#slider_part" class="fa fa-google"></a>
         </div>
 
 
-        <div class="gallery">
-            <img id="myImg" src="Slike/MoFit1.jpg" alt="mofit" style="width:180px;max-width:190px;">
-            <img id="myImg" src="Slike/MoFit2.jpg" alt="mofit" style="width:180px;max-width:190px;">
-            <img id="myImg" src="Slike/MoFit3.jpg" alt="mofit" style="width:180px;max-width:190px;">
-    </div>
+        <div class="row" style="margin-top: 12px;">
+          <div class="column">
+            <img src="Slike/MoFit1.jpg" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+          </div>
+          <div class="column">
+            <img src="Slike/MoFit2.jpg" style="width:100%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+          </div>
+          <div class="column">
+            <img src="Slike/MoFit3.jpg" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+          </div>
+          <div class="column">
+            <img src="Slike/MoFit1.jpg" style="width:100%" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+          </div>
+        </div>
+
+        <div id="myModal" class="modal">
+          <span class="close cursor" onclick="closeModal()">&times;</span>
+          <div class="modal-content">
+
+            <div class="mySlides" style="margin-top: 60px;">
+              <img src="Slike/MoFit1.jpg" style="width: 450px; height: 300px;">
+            </div>
+
+            <div class="mySlides" style="margin-top: 60px;">
+              <img src="Slike/MoFit2.jpg" style="width: 450px; height: 300px;">
+            </div>
+
+            <div class="mySlides" style="margin-top: 60px;">
+              <img src="Slike/MoFit3.jpg" style="width: 450px; height: 300px;">
+            </div>
+
+            <div class="mySlides" style="margin-top: 60px;">
+              <img src="Slike/MoFit1.jpg" style="width: 450px; height: 300px;">
+            </div>
+
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+
+            <div class="column">
+              <img class="demo cursor" src="Slike/MoFit1.jpg" style="width: 150px; height: 100px; margin-top: 10px;" onclick="currentSlide(1)">
+            </div>
+            <div class="column">
+              <img class="demo cursor" src="Slike/MoFit2.jpg" style="width: 150px; height: 100px; margin-top: 10px;" onclick="currentSlide(2)">
+            </div>
+            <div class="column">
+              <img class="demo cursor" src="Slike/MoFit3.jpg" style="width: 150px; height: 100px; margin-top: 10px;" onclick="currentSlide(3)">
+            </div>
+            <div class="column">
+              <img class="demo cursor" src="Slike/MoFit1.jpg" style="width: 150px; height: 100px; margin-top: 10px;" onclick="currentSlide(4)">
+            </div>
+          </div>
+        </div>
 </div>
 
 
 
-
-<div id="myModal" class="modal">
-  <span class="close">&times;</span>
-  <img class="modal-content" id="img01">
-</div>
 
 
 <script>
@@ -449,25 +640,45 @@ function myFunction() {
 }
 </script>
 
+
 <script>
-var modal = document.getElementById("myModal");
-
-var img = document.getElementById("myImg");
-var modalImg = document.getElementById("img01");
-img.onclick = function(){
-  modal.style.display = "block";
-  modalImg.src = this.src;
-  captionText.innerHTML = this.alt;
+function openModal() {
+  document.getElementById("myModal").style.display = "block";
 }
 
-var span = document.getElementsByClassName("close")[0];
-
-span.onclick = function() {
-  modal.style.display = "none";
+function closeModal() {
+  document.getElementById("myModal").style.display = "none";
 }
 
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
 </script>
-
       </section>
 
 
