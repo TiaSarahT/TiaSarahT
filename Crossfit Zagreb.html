@@ -3,6 +3,7 @@
 <head>
   <link href="https://fonts.googleapis.com/css?family=Oswald:700|PT+Sans&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
 <title>CROSSFIT ZAGREB</title>
@@ -22,24 +23,44 @@
 #background:before {
   content:"";
   position: absolute;
-  top:0;
-  right:0;
-  left:0;
-  bottom:0;
-  z-index:1;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
   background:linear-gradient(to right,rgba(0,0,0,1), rgba(0,0,0,0.9),rgba(0,0,0,0.5));
 }
 
 #background {
-  left: 0%;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
   background-size: cover;
-  top: 0%;
-  height:100vh;
-  width:100%;
+  min-height: 100vh;
+  width: 100%;
   overflow: hidden;
-  position: absolute;
+  position: fixed;
   z-index: -1;
 }
+
+@media screen and (min-width: 768px) {
+  #background {
+    max-height: 100vh;
+  }
+}
+
+#background video {
+  position: absolute;
+  left: -5%;
+  right: -5%;
+  bottom: -5%;
+  top: -5%;
+  margin: auto;
+  min-width: 100%;
+  min-height: 100%;
+}
+
 header {
   position: absolute;
   top: 0;
@@ -47,7 +68,7 @@ header {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 40px 100px;
+  padding: 40px 78px;
   z-index: 10000;
   transition: 0.6s;
 }
@@ -97,14 +118,18 @@ header #toggle:after {
   position: relative;
   width: 100%;
   min-height: 100vh;
-  padding: 100px;
+  padding: 75px;
   display: flex;
   align-items: center;
   transition: 0.5s;
 }
-.banner.active {
-  transform: translateX(-400px);
+
+@media screen and (min-width: 768px) {
+    .banner.active {
+        transform: translateX(-400px);
+    }
 }
+
 #navigation {
   text-align: left;
   position: fixed;
@@ -140,9 +165,17 @@ header #toggle:after {
 #navigation ul li a:hover {
   color: #000;
 }
-.content {
-  max-width: 600px;
+
+.body-content {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
 }
+
+.content {
+    max-width: 600px;
+}
+
 @media (max-width: 767px) {
   header {
     padding: 20px 50px;
@@ -166,30 +199,23 @@ header #toggle:after {
   }
 }
 .headline {
-  position: fixed;
   color: white;
   font-size: 2.8em;
-  margin-bottom: 330px;
+  margin-top: 40px;
+  text-align: left;
 }
 .line {
-  position: fixed;
-  margin-bottom: 220px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  text-align: left;
 }
 .text {
-  position: fixed;
   color: white;
   text-align: left;
   font-size: 16px;
   font-family: 'Oswald', sans-serif;
   margin-left: 5px;
   font-weight: 300;
-}
-.hide {
-  display: none;
-}
-.myDIV:hover + .hide {
-  display: block;
-  color: white;
 }
 .contact h3 {
   margin-top: 5px;
@@ -228,6 +254,267 @@ header #toggle:after {
 .dropdown-container:hover .dropdown {
   max-height: 1000px;
 }
+
+a.lightbox img {
+  height: 150px;
+  box-shadow: 0px 0px 8px rgba(0,0,0,.3);
+}
+
+
+#myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg:hover {
+  opacity: 0.7;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 99999;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+.modal-content, #caption {
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)}
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)}
+  to {transform:scale(1)}
+}
+
+.close {
+  position: absolute;
+  top: 80px;
+  right: 270px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+
+.gallery {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.gallery img + img {
+    margin-top: 15px;
+}
+
+@media screen and (min-width: 768px) {
+    .gallery img + img {
+        margin-top: 0;
+        margin-left: 15px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .body-content {
+        width: 100%;
+    }
+}
+#myDIV {
+  display: none;
+  text-align: left;
+  color: white;
+}
+
+.row > .column {
+  padding: 0 10px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column {
+  float: left;
+  width: 25%;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+}
+
+.modal-content {
+  position: relative;
+  background-color: black;
+  margin: auto;
+  padding: 0;
+  width: 50%;
+  max-width: 1200px;
+}
+
+.close {
+  color: white;
+  position: absolute;
+  top: 140px;
+  right: 260px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.mySlides {
+  display: none;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 15px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev {
+  left: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+img {
+  margin-bottom: -4px;
+}
+
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+img.hover-shadow {
+  transition: 0.3s;
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.container {
+  float: right;
+  margin-bottom: 120px;
+}
+.fa {
+  height: 32px;
+  font-size: 20px;
+  padding-top: 5px;
+  width: 32px;
+  text-align: center;
+  border: 1px solid white;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+.fa:hover {
+    background-color: #ffff00;
+    color: black;
+    opacity: 0.9;
+    border-color: black;
+}
+
+.fa-facebook {
+  margin-top: 13px;
+  background: black;
+  color: white;
+}
+.fa-instagram {
+  background: black;
+  color: white;
+}
+.fa-google {
+  background: black;
+  color: white;
+}
+.location h3:hover {
+  color: #ffff00;
+}
+.price h3:hover {
+  color: #ffff00;
+}
 </style>
 </head>
 <body>
@@ -243,68 +530,151 @@ header #toggle:after {
       <a href="index.html" class="logo">FITNESS</a>
       <div id="toggle" onclick="toggle()"></div>
     </header>
+
+    <div class="body-content">
     <div class="headline">
       <h2>CROSSFIT ZAGREB</h2>
     </div>
     <div class="line">
       <img src="Slike/Linija.png" alt="Line" style="width: 500px;">
+    </div>
+
     <div class="text">
         <p>Najstarija CrossFit podružnica u Hrvatskoj i prva u srcu
            Zagreba.<br>
            First CrossFit Affiliate in Croatia. A thriving community<br>of great people.</p>
-             <div class="myDIV" style="margin-top: 7px;"><small><h1>CJENIK</h1></small></div>
-             <div class="hide">GRUPNI TRENINZI : 350kn<br>
-                               INDIVIDUALNI TRENINZI : po dogovoru.<br>
-                               OPEN GYM: 200kn</div>
-    <div class="contact">
+
+           <div class="price">
+           <button onclick="myFunction()" style="color: white; background-color: black; border: 0; font-size: 18px; margin-top: 5px;"><h3>CJENIK<h3></button>
+           <div id="myDIV">
+             GRUPNI TRENINZI : 350kn<br>
+             OPEN GYM : 400kn
+           </div>
+         </div>
+
+
+    <div class="contact" style="margin-bottom: 10px;">
       <h3>KONTAKT</h3>
-      <p style="margin-bottom: 4px;">Saša Grošić<br>092 554 7754<br>email: sasagrosic@gmail.com</p>
-      <p style="margin-bottom: 4px;">Marlena Zeman<br>091 824 9384<br>email: marlenazeman@gmail.com</p>
-      <p style="margin-bottom: 4px;">Branimira Novšak<br>091 333 1824<br>email: branimiranovšak@gmail.com</p>
-    </div>
-    <a href="https://www.google.com/maps/place/CrossFit+Zagreb/@45.8075768,15.9734217,15z/data=!4m5!3m4!1s0x0:0x927da3a754d23989!8m2!3d45.8075768!4d15.9734217"
-    style="color: white; text-decoration: none;"><h3>LOKACIJA</h3></a>
-    </div>
+      <p style="margin-bottom: 4px;">Crossfit Zagreb<br>099/3327 987<br>email: office.crossfitzagreb@gmail.com</p>
     </div>
 
-    <div class="w3-content w3-display-container" style="margin-left: 480px; margin-top: 355px; position: fixed;">
-
-    <div class="w3-display-container mySlides">
-      <img src="Slike/CFZG1.jpg" style="width: 210px; height: 150px;">
-      <img src="Slike/CFZG2.jpg" style="width: 210px; height: 150px;">
-      <img src="Slike/CFZG3.jpg" style="width: 210px; height: 150px;">
+    <div class="location">
+    <a href="https://www.google.com/maps/place/CrossFit+Zagreb/@45.7946162,15.9291214,13z/data=!4m8!1m2!2m1!1sCROSSFIT+ZAGREB+VELESAJAM!3m4!1s0x4765d6fa4af730ed:0x927da3a754d23989!8m2!3d45.8075768!4d15.9734217"
+    style="color: white; text-decoration: none;"><h3>LOKACIJA CENTAR</h3></a>
+    <a href="https://www.google.com/maps/search/velesajam/@45.7801837,15.967497,16z/data=!3m1!4b1"
+    style="color: white; text-decoration: none;"><h3>LOKACIJA VELESAJAM</h3></a>
     </div>
 
-    <div class="w3-display-container mySlides">
-      <img src="Slike/CFZG4.jpg" style="width: 210px; height: 150px;">
-      <img src="Slike/CFZG5.jpg" style="width: 210px; height: 150px;">
-      <img src="Slike/CFZG6.jpg" style="width: 210px; height: 150px;">
+    <a href="https://www.facebook.com/CrossFitZagreb1/" class="fa fa-facebook"></a>
+    <a href="https://www.instagram.com/crossfitzagreb/?hl=hr" class="fa fa-instagram"></a>
+  </div>
+
+  <div class="row" style="margin-top: 12px;">
+    <div class="column">
+      <img src="Slike/CFZG1.jpg" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
     </div>
-
-    <button class="w3-button w3-display-left w3-black" onclick="plusDivs(-1)" style="margin-left: 574px; background-color: white; color: black; width: 30px; height: 30px;">&#10094;</button>
-    <button class="w3-button w3-display-right w3-black" onclick="plusDivs(1)" style="background-color: white; color: black; width: 30px; height: 30px;">&#10095;</button>
-
+    <div class="column">
+      <img src="Slike/CFZG7.jpg" style="width:100%" height: 300px;" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
     </div>
+    <div class="column">
+      <img src="Slike/CFZG4.jpg" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+    </div>
+    <div class="column">
+      <img src="Slike/CFZG2.jpg" style="width:100%" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+    </div>
+  </div>
 
-    <script>
-    var slideIndex = 1;
-    showDivs(slideIndex);
+  <div id="myModal" class="modal">
+    <span class="close cursor" onclick="closeModal()">&times;</span>
+    <div class="modal-content">
 
-    function plusDivs(n) {
-      showDivs(slideIndex += n);
+      <div class="mySlides" style="margin-top: 60px;">
+        <img src="Slike/CFZG1.jpg" style="width: 450px; height: 300px;">
+      </div>
+
+      <div class="mySlides" style="margin-top: 60px;">
+        <img src="Slike/CFZG7.jpg" style="width: 450px; height: 300px;">
+      </div>
+
+      <div class="mySlides" style="margin-top: 60px;">
+        <img src="Slike/CFZG4.jpg" style="width: 450px; height: 300px;">
+      </div>
+
+      <div class="mySlides" style="margin-top: 60px;">
+        <img src="Slike/CFZG2.jpg" style="width: 450px; height: 300px;">
+      </div>
+
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+
+      <div class="column">
+        <img class="demo cursor" src="Slike/CFZG1.jpg" style="width: 150px; height: 100px; margin-top: 10px;" onclick="currentSlide(1)">
+      </div>
+      <div class="column">
+        <img class="demo cursor" src="Slike/CFZG7.jpg" style="width: 150px; height: 100px; margin-top: 10px;" onclick="currentSlide(2)">
+      </div>
+      <div class="column">
+        <img class="demo cursor" src="Slike/CFZG4.jpg" style="width: 150px; height: 100px; margin-top: 10px;" onclick="currentSlide(3)">
+      </div>
+      <div class="column">
+        <img class="demo cursor" src="Slike/CFZG2.jpg" style="width: 150px; height: 100px; margin-top: 10px;" onclick="currentSlide(4)">
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <script>
+  function myFunction() {
+    var x = document.getElementById("myDIV");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
     }
+  }
+  </script>
 
-    function showDivs(n) {
-      var i;
-      var x = document.getElementsByClassName("mySlides");
-      if (n > x.length) {slideIndex = 1}
-      if (n < 1) {slideIndex = x.length}
-      for (i = 0; i < x.length; i++) {
-         x[i].style.display = "none";
-      }
-      x[slideIndex-1].style.display = "block";
+
+  <script>
+  function openModal() {
+    document.getElementById("myModal").style.display = "block";
+  }
+
+  function closeModal() {
+    document.getElementById("myModal").style.display = "none";
+  }
+
+  var slideIndex = 1;
+  showSlides(slideIndex);
+
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+
+  function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("demo");
+    var captionText = document.getElementById("caption");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
     }
-    </script>
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+    captionText.innerHTML = dots[slideIndex-1].alt;
+  }
+  </script>
+        </section>
 
       </section>
       <div id="navigation">
@@ -317,7 +687,7 @@ header #toggle:after {
               <li><a href="DSR Omega.html" style="font-size: 20px;">DSR OMEGA</a></li>
               <li><a href="Superbia.html" style="font-size: 20px;">SUPERBIA</a></li>
               <li><a href="GoldenGym.html" style="font-size: 20px;">GOLDEN GYM</a></li>
-              <li><a href="Crossfit Zagreb.html" style="font-size: 20px;">CROSSFIT ZAGREB</a></li>
+              <li><a href="CROSSFIT Zagreb.html" style="font-size: 20px;">CROSSFIT ZAGREB</a></li>
               <li><a href="Crossfit Heartrate.html" style="font-size: 20px;">CROSSFIT HEARTRATE</a></li>
               <li><a href="Crossfit Maksimir" style="font-size: 20px;">CROSSFIT MAKSIMIR</a></li>
             </ul>
