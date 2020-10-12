@@ -4,6 +4,9 @@
   <link href="https://fonts.googleapis.com/css?family=Oswald:700|PT+Sans&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
 <title>DSR Omega</title>
@@ -16,18 +19,18 @@
 }
 #outer {
   text-align: center;
-  position: relative;
+  position: absolute;
   overflow: hidden;
   min-height: 100vh;
 }
 #background:before {
   content:"";
   position: absolute;
-  top:0;
-  right:0;
-  left:0;
-  bottom:0;
-  z-index:1;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
   background:linear-gradient(to right,rgba(0,0,0,1), rgba(0,0,0,0.9),rgba(0,0,0,0.5));
 }
 
@@ -60,6 +63,7 @@
   min-width: 100%;
   min-height: 100%;
 }
+
 header {
   position: absolute;
   top: 0;
@@ -67,7 +71,7 @@ header {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 40px 100px;
+  padding: 40px 78px;
   z-index: 10000;
   transition: 0.6s;
 }
@@ -122,26 +126,28 @@ header #toggle:after {
   align-items: center;
   transition: 0.5s;
 }
+
 @media screen and (min-width: 768px) {
     .banner.active {
         transform: translateX(-400px);
     }
 }
+
 #navigation {
   text-align: left;
   position: fixed;
   top: 0;
   right: -400px;
   width: 400px;
-  height: 100vh;
+  height: 100%;
   background: #ffff00;
   z-index: 1;
   display: grid;
-  place-items: center;
+  padding: 40px;
   transition: 0.5s;
 }
 #navigation.active {
-  right: 0;
+  right: 400;
 }
 #navigation ul {
   position: relative;
@@ -162,13 +168,35 @@ header #toggle:after {
 #navigation ul li a:hover {
   color: #000;
 }
+.dropdown-btn {
+  text-decoration: none;
+  font-size: 30px;
+  font-weight: 600;
+  color: white;
+  font-family: 'Oswald', sans-serif;
+  display: block;
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+.dropdown-btn:hover {
+  color: black;
+}
+.dropdown {
+  display: none;
+  padding-left: 8px;
+}
+.dropdown-container ul {
+  display: none;
+}
 .body-content {
   max-width: 100%;
   display: flex;
   flex-direction: column;
 }
 .content {
-  max-width: 600px;
+    max-width: 600px;
 }
 @media (max-width: 767px) {
   header {
@@ -188,15 +216,82 @@ header #toggle:after {
   }
   #navigation ul li a {
     font-size: 1.5em;
-    margin: 5px 0;
+    margin: 5px 20px;
     width: 100px;
   }
+  #navigation button {
+    font-size: 1.5em;
+    margin: 5px 20px;
+  }
 }
+@media (max-width: 370px) {
+  header {
+    padding: 20px 30px;
+  }
+  .banner {
+    padding: 50px 25px 75px;
+  }
+  .banner .logo {
+    font-size: 0.7em;
+  }
+  .banner .content p {
+    font-size: 1.5em;
+  }
+  .banner .active {
+    transform: translateX(-75px);
+  }
+  #navigation ul li a {
+    font-size: 0.7em;
+    margin: 2px 10px;
+    width: 50px;
+  }
+  #navigation button {
+    font-size: 0.7em;
+    margin: 2px 10px;
+  }
+}
+
 .headline {
   color: white;
   font-size: 2.8em;
   margin-top: 40px;
   text-align: left;
+  margin-left: 3px;
+}
+@media screen and (min-width: 601px) {
+  div.headline {
+    font-size: 2.8em;
+  }
+}
+@media screen and (max-width: 600px) {
+  div.headline {
+    font-size: 2em;
+    margin-top: -10px;
+  }
+}
+@media screen and (max-width: 370px) {
+  div.headline {
+    font-size: 1em;
+  }
+}
+@media screen and (max-width: 600px) {
+  div.line {
+    width: 80%;
+    margin-top: -10px;
+    margin-bottom: 2px;
+  }
+}
+@media screen and (max-width: 360px) {
+  div.line {
+    width: 45%;
+    margin-top: -10px;
+    margin-bottom: 2px;
+  }
+}
+@media screen and (max-width: 370px) {
+  div.time h3 {
+    font-size: 1.3em;
+  }
 }
 .line {
   overflow: hidden;
@@ -211,261 +306,70 @@ header #toggle:after {
   margin-left: 5px;
   font-weight: 300;
 }
+@media screen and (min-width: 601px) {
+  div.text {
+    font-size: 1em;
+  }
+}
+@media screen and (max-width: 600px) {
+  div.text {
+    font-size: 0.6em;
+    margin-top: -5px;
+  }
+}
+@media screen and (max-width: 360px) {
+  div.text {
+    font-size: 0.4em;
+    margin-top: -10px;
+  }
+}
 .contact h3 {
   margin-top: 5px;
   font-size: 18px;
 }
+@media screen and (min-width: 601px) {
+  div.contact h3 {
+    font-size: 1.2em;
+  }
+}
+@media screen and (max-width: 600px) {
+  div.contact h3 {
+    font-size: 1.5em;
+  }
+}
+@media screen and (max-width: 370px) {
+  div.contact h3 {
+    font-size: 1.5em;
+  }
+}
 .contact p {
   font-size: 12px;
 }
-
+@media screen and (min-width: 601px) {
+  div.contact p {
+    font-size: 0.7em;
+  }
+}
+@media screen and (max-width: 600px) {
+  div.contact p {
+    font-size: 0.9em;
+  }
+}
+@media screen and (max-width: 370px) {
+  div.contact p {
+    font-size: 1.2em;
+  }
+}
 .dropdown-container {
   position: relative;
   font-size: 15px;
-}
-
-.dropdown-container .dropdown {
-  position: absolute !important;
-  top: 45px;
-  left: 0;
-  width: 250px;
-  background-color: black;
-  max-height: 0;
-  transition: all .3s ease-in-out;
   overflow: hidden;
   z-index: 1000;
-  line-height: 20px;
-}
-
-.dropdown-container .dropdown li {
-  padding: 5px;
-}
-
-.dropdown-container .dropdown li a:hover {
-  color: #ffff00 !important;
-}
-
-.dropdown-container:hover .dropdown {
-  max-height: 1000px;
-}
-a.lightbox img {
-  height: 150px;
-  box-shadow: 0px 0px 8px rgba(0,0,0,.3);
-}
-
-
-#myImg {
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-#myImg:hover {
-  opacity: 0.7;
-}
-
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 99999;
-  padding-top: 100px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.9);
-}
-
-.modal-content {
-  margin: auto;
-  display: block;
-  width: 80%;
-  max-width: 700px;
-}
-
-.modal-content, #caption {
-  -webkit-animation-name: zoom;
-  -webkit-animation-duration: 0.6s;
-  animation-name: zoom;
-  animation-duration: 0.6s;
-}
-
-@-webkit-keyframes zoom {
-  from {-webkit-transform:scale(0)}
-  to {-webkit-transform:scale(1)}
-}
-
-@keyframes zoom {
-  from {transform:scale(0)}
-  to {transform:scale(1)}
-}
-
-.close {
-  position: absolute;
-  top: 80px;
-  right: 270px;
-  color: #f1f1f1;
-  font-size: 40px;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.close:hover,
-.close:focus {
-  color: #bbb;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-@media only screen and (max-width: 700px){
-  .modal-content {
-    width: 100%;
-  }
-}
-
-.gallery {
-    display: flex;
-    align-items: stretch;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 50px;
-}
-
-.gallery img + img {
-    margin-top: 15px;
-}
-
-@media screen and (min-width: 768px) {
-    .gallery img + img {
-        margin-top: 0;
-        margin-left: 15px;
-    }
-}
-
-@media screen and (min-width: 992px) {
-    .body-content {
-        width: 100%;
-    }
 }
 #myDIV {
   display: none;
   text-align: left;
   color: white;
-}
-
-.row > .column {
-  padding: 0 10px;
-}
-
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.column {
-  float: left;
-  width: 25%;
-}
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  padding-top: 100px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: black;
-}
-
-.modal-content {
-  position: relative;
-  background-color: black;
-  margin: auto;
-  padding: 0;
-  width: 50%;
-  max-width: 1200px;
-}
-
-.close {
-  color: white;
-  position: absolute;
-  top: 140px;
-  right: 260px;
-  font-size: 35px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: #999;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.mySlides {
-  display: none;
-}
-
-.cursor {
-  cursor: pointer;
-}
-
-.prev,
-.next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 15px;
-  margin-top: -50px;
-  color: white;
-  font-weight: bold;
-  font-size: 20px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-  -webkit-user-select: none;
-}
-
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-.prev {
-  left: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-.prev:hover,
-.next:hover {
-  background-color: rgba(255, 255, 255, 0.8);
-}
-
-img {
-  margin-bottom: -4px;
-}
-
-.demo {
-  opacity: 0.6;
-}
-
-.active,
-.demo:hover {
-  opacity: 1;
-}
-
-img.hover-shadow {
-  transition: 0.3s;
-}
-
-.hover-shadow:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .container {
   float: right;
@@ -488,13 +392,13 @@ img.hover-shadow {
     opacity: 0.9;
     border-color: black;
 }
-
-.fa-facebook {
+.fa-instagram {
   margin-top: 13px;
   background: black;
   color: white;
 }
-.fa-instagram {
+.fa-facebook {
+  margin-top: 13px;
   background: black;
   color: white;
 }
@@ -502,11 +406,129 @@ img.hover-shadow {
   background: black;
   color: white;
 }
+@media screen and (max-width: 370px) {
+  div.links a {
+    font-size: 1.8em;
+    width: 24px;
+    height: 24px;
+  }
+}
+@media screen and (max-width: 600px) {
+  div.links a {
+    margin-bottom: 10px;
+  }
+}
 .location h3:hover {
   color: #ffff00;
 }
+@media screen and (max-width: 600px) {
+  div.location h3 {
+    font-size: 1.6em;
+  }
+}
+@media screen and (max-width: 360px) {
+  div.location h3 {
+    font-size: 1.5em;
+  }
+}
 .price h3:hover {
   color: #ffff00;
+}
+@media screen and (min-width: 601px) {
+  div.price h3 {
+    font-size: 1.1em;
+  }
+}
+@media screen and (max-width: 600px) {
+  div.price h3 {
+    font-size: 0.9em;
+  }
+}
+@media screen and (max-width: 370px) {
+  div.price h3 {
+    font-size: 0.6em;
+  }
+}
+@media screen and (min-width: 601px) {
+  div.time h3 {
+    font-size: 1.2em;
+  }
+}
+@media screen and (max-width: 600px) {
+  div.time h3 {
+    font-size: 1.5em;
+  }
+}
+.time p {
+  font-size: 12px;
+}
+@media screen and (min-width: 601px) {
+  div.time p {
+    font-size: 0.7em;
+  }
+}
+@media screen and (max-width: 600px) {
+  div.time p {
+    font-size: 0.9em;
+  }
+}
+@media screen and (max-width: 700px) {
+  .column {
+    width: 30%;
+    height: auto;
+  }
+}
+.gallery-section{
+    width: 100%;
+    padding: 20px 0;
+}
+
+.inner-width{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 0px;
+}
+.gallery-section .gallery{
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+}
+.gallery-section .image{
+    flex: 25%;
+    overflow: hidden;
+    cursor: pointer;
+}
+.gallery-section .image img{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    transition: 0.4s;
+}
+.gallery-section .image:hover img{
+    transform: scale(1.4);
+}
+@media screen and (max-width:960px) {
+    .gallery-section .image{
+      flex: 33.33%;
+  }
+}
+@media screen and (max-width:768px) {
+    .gallery-section .image{
+      flex: 50%;
+  }
+}
+@media screen and (max-width:480px) {
+    .gallery-section .image{
+      flex: 100%;
+  }
+}
+@media screen and (max-width:360px) {
+    .gallery-section .image{
+      flex: 50%;
+      margin-top: -20px;
+      padding-bottom: 20px;
+  }
 }
 </style>
 </head>
@@ -518,6 +540,7 @@ img.hover-shadow {
           <source src="Video/VideoCrossfit.mp4" type="video/mp4"/>
       </video>
 </div>
+
   <section class="banner" id="sec">
     <header>
       <a href="index.html" class="logo">FITNESS</a>
@@ -528,6 +551,7 @@ img.hover-shadow {
     <div class="headline">
       <h2>DSR Omega</h2>
     </div>
+
     <div class="line">
       <img src="Slike/Linija.png" alt="Line" style="width: 420px;">
     </div>
@@ -536,6 +560,13 @@ img.hover-shadow {
         <p>Društvo sportske rekreacije Omega uspješno se bavi promicanjem<br>
            zdravog i aktivnog načina života više od desetljeća. Nudimo vam vođene<br>
            treninge fitnessa, boxa, crossfita, muayi thai, karate, te i cro ryu ju-jitsu.</p>
+
+           <div class="time" style="margin-top:10px; margin-bottom: 5px;">
+                    <h3>RADNO VRIJEME</h3>
+                    <p style="font-size: 12px;">PON-PET : 10:00-20:30h<br>
+                       SUB : 15:00-20:00h<br>
+                       NED : Zatvoreno</p>
+           </div>
 
            <div class="price">
            <button onclick="myFunction()" style="color: white; background-color: black; border: 0; font-size: 18px; margin-top: 5px;"><h3>CJENIK<h3></button>
@@ -555,155 +586,113 @@ img.hover-shadow {
     style="color: white; text-decoration: none;"><h3>LOKACIJA</h3></a>
     </div>
 
+<div class="links">
     <a href="https://www.facebook.com/bdsromega" class="fa fa-facebook"></a>
     <a href="https://instagram.com/omegazagreb?igshid=1llwy1ztel09b" class="fa fa-instagram"></a>
     <a href="http://www.dsromega.hr/?fbclid=IwAR27G3kE8XwJD5XwmcPmbul7r3Q7fyWlLkF6xVnRXfXN4TdUgLgqZAry6BQ" class="fa fa-google"></a>
 </div>
+</div>
 
-<div class="row" style="margin-top: 12px;">
-  <div class="column">
-    <img src="Slike/MoFit1.jpg" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
-  </div>
-  <div class="column">
-    <img src="Slike/MoFit2.jpg" style="width:100%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
-  </div>
-  <div class="column">
-    <img src="Slike/MoFit3.jpg" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
-  </div>
-  <div class="column">
-    <img src="Slike/MoFit4.jpg" style="width:100%" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+<div class="gallery-section">
+  <div class="inner-width">
+    <div class="border"></div>
+    <div class="gallery">
+
+      <a href="Slike/DSR2.jpg" class="image">
+        <img src="Slike/DSR2.jpg" alt="DSR1">
+      </a>
+
+      <a href="Slike/DSR3.jpg" class="image">
+        <img src="Slike/DSR3.jpg" alt="DSR2">
+      </a>
+
+      <a href="Slike/DSR5.jpg" class="image">
+        <img src="Slike/DSR5.jpg" alt="DSR3">
+      </a>
+
+      <a href="Slike/DSR6.jpg" class="image">
+        <img src="Slike/DSR6.jpg" alt="DSR4">
+      </a>
+
+    </div>
   </div>
 </div>
 
-<div id="myModal" class="modal">
-  <span class="close cursor" onclick="closeModal()">&times;</span>
-  <div class="modal-content">
 
-    <div class="mySlides" style="margin-top: 60px;">
-      <img src="Slike/MoFit1.jpg" style="width: 450px; height: 300px;">
+<div id="navigation">
+  <ul>
+    <li><a href="index.html">HOME</a><li>
+    <li class="dropdown-container">
+      <button class="dropdown-btn">CROSSFIT<i class="fa fa-caret-down" style="border: none; font-size: 30px;"></i></button>
+      <ul class="dropdown" style="display: none;">
+        <li><a href="Train Lab.html" style="font-size: 20px;">TRAIN LAB</a></li>
+        <li><a href="DSR Omega.html" style="font-size: 20px;">DSR OMEGA</a></li>
+        <li><a href="Superbia.html" style="font-size: 20px;">SUPERBIA</a></li>
+        <li><a href="GoldenGym.html" style="font-size: 20px;">GOLDEN GYM</a></li>
+        <li><a href="Crossfit Zagreb.html" style="font-size: 20px;">CROSSFIT ZAGREB</a></li>
+        <li><a href="Crossfit Heartrate.html" style="font-size: 20px;">CROSSFIT HEARTRATE</a></li>
+        <li><a href="Crossfit Maksimir" style="font-size: 20px;">CROSSFIT MAKSIMIR</a></li>
+      </ul>
+    </li>
+    <li class="dropdown-container">
+    <button class="dropdown-btn">WEIGHTLIFTING<i class="fa fa-caret-down" style="border: none; font-size: 30px;"></i></button>
+      <ul class="dropdown" style="display: none;">
+        <li><a href="DK Metalac.html" style="font-size: 20px;">DK METALAC</a></li>
+      </ul>
+    </li>
+    <li class="dropdown-container">
+      <button class="dropdown-btn">TERETANA<i class="fa fa-caret-down" style="border: none; font-size: 30px;"></i></button>
+      <div class="dropdown">
+        <a href="Gyms4you.html" style="font-size: 20px;">GYMS4YOU</a><br>
+        <a href="DSR Omega_Teretana.html" style="font-size: 20px;">DSR OMEGA</a><br>
+        <a href="Play.html" style="font-size: 20px;">PLAY FITNESS CENTAR</a><br>
+        <a href="Vita.html" style="font-size: 20px;">VITA FITNESS & SPA</a><br>
+        <a href="Core Gym.html" style="font-size: 20px;">CORE GYM</a><br>
+        <a href="MoFit.html" style="font-size: 20px;">MOFIT</a><br>
+        <a href="Forma.html" style="font-size: 20px;">FITNESS FORMA</a>
     </div>
-
-    <div class="mySlides" style="margin-top: 60px;">
-      <img src="Slike/MoFit2.jpg" style="width: 450px; height: 300px;">
-    </div>
-
-    <div class="mySlides" style="margin-top: 60px;">
-      <img src="Slike/MoFit3.jpg" style="width: 450px; height: 300px;">
-    </div>
-
-    <div class="mySlides" style="margin-top: 60px;">
-      <img src="Slike/MoFit4.jpg" style="width: 450px; height: 300px;">
-    </div>
-
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-
-    <div class="column">
-      <img class="demo cursor" src="Slike/MoFit1.jpg" style="width: 150px; height: 100px; margin-top: 10px;" onclick="currentSlide(1)">
-    </div>
-    <div class="column">
-      <img class="demo cursor" src="Slike/MoFit2.jpg" style="width: 150px; height: 100px; margin-top: 10px;" onclick="currentSlide(2)">
-    </div>
-    <div class="column">
-      <img class="demo cursor" src="Slike/MoFit3.jpg" style="width: 150px; height: 100px; margin-top: 10px;" onclick="currentSlide(3)">
-    </div>
-    <div class="column">
-      <img class="demo cursor" src="Slike/MoFit4.jpg" style="width: 150px; height: 100px; margin-top: 10px;" onclick="currentSlide(4)">
-    </div>
-  </div>
-</div>
+    </li>
+    <li><a href="Kontakt.html">KONTAKT</a><li>
+  </ul>
 </div>
 
 <script>
-function myFunction() {
-  var x = document.getElementById("myDIV");
-  if (x.style.display === "block") {
-    x.style.display = "none";
-  } else {
-    x.style.display = "block";
-  }
-}
+  $(".gallery").magnificPopup({
+    delegate: 'a',
+    type: 'image',
+    gallery:{
+      enabled: true
+    }
+  });
 </script>
-
 
 <script>
-function openModal() {
-  document.getElementById("myModal").style.display = "block";
-}
+    var dropdown = document.getElementsByClassName("dropdown-btn");
+    var i;
 
-function closeModal() {
-  document.getElementById("myModal").style.display = "none";
-}
-
-var slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("demo");
-  var captionText = document.getElementById("caption");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-  captionText.innerHTML = dots[slideIndex-1].alt;
+    for (i = 0; i < dropdown.length; i++) {
+    dropdown[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var dropdownContent = this.nextElementSibling;
+    if (dropdownContent.style.display === "block") {
+    dropdownContent.style.display = "none";
+    } else {
+    dropdownContent.style.display = "block";
+    }
+  });
 }
 </script>
-      </section>
 
-      <div id="navigation">
-        <ul>
-          <li><a href="index.html">HOME</a><li>
-          <li class="dropdown-container">
-            <a href="Train Lab.html">CROSSFIT</a>
-            <ul class="dropdown">
-              <li><a href="Train Lab.html" style="font-size: 20px;">TRAIN LAB</a></li>
-              <li><a href="DSR Omega.html" style="font-size: 20px;">DSR OMEGA</a></li>
-              <li><a href="Superbia.html" style="font-size: 20px;">SUPERBIA</a></li>
-              <li><a href="GoldenGym.html" style="font-size: 20px;">GOLDEN GYM</a></li>
-              <li><a href="CROSSFIT Zagreb.html" style="font-size: 20px;">CROSSFIT ZAGREB</a></li>
-              <li><a href="Crossfit Heartrate.html" style="font-size: 20px;">CROSSFIT HEARTRATE</a></li>
-              <li><a href="Crossfit Maksimir" style="font-size: 20px;">CROSSFIT MAKSIMIR</a></li>
-            </ul>
-          </li>
-          <li class="dropdown-container">
-          <a href="DK Metalac.html">WEIGHTLIFTING</a>
-            <ul class="dropdown">
-              <li><a href="DK Metalac.html" style="font-size: 20px;">DK METALAC</a></li>
-            </ul>
-          </li>
-          <li class="dropdown-container">
-            <a href="Teretana.html">TERETANA</a>
-            <ul class="dropdown">
-              <li><a href="Gyms4you.html" style="font-size: 20px;">GYMS4YOU</a></li>
-              <li><a href="DSR Omega_Teretana.html" style="font-size: 20px;">DSR OMEGA</a></li>
-              <li><a href="Play.html" style="font-size: 20px;">PLAY FITNESS CENTAR</a></li>
-              <li><a href="Vita.html" style="font-size: 20px;">VITA FITNESS & SPA</a></li>
-              <li><a href="Core Gym.html" style="font-size: 20px;">CORE GYM</a></li>
-              <li><a href="MoFit.html" style="font-size: 20px;">MOFIT</a></li>
-              <li><a href="Forma.html" style="font-size: 20px;">FITNESS FORMA</a></li>
-            </ul>
-          </li>
-          <li><a href="Kontakt.html">KONTAKT</a><li>
-        </ul>
-      </div>
-
+      <script>
+      function myFunction() {
+        var x = document.getElementById("myDIV");
+        if (x.style.display === "block") {
+          x.style.display = "none";
+        } else {
+          x.style.display = "block";
+        }
+      }
+      </script>
 
 <script type="text/javascript">
     function toggle(){
