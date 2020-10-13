@@ -3,6 +3,7 @@
 <head>
   <link href="https://fonts.googleapis.com/css?family=Oswald:700|PT+Sans&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <meta charset="UTF-8">
 <title>WELCOME</title>
 <style>
@@ -85,6 +86,7 @@ header #toggle:after {
 }
 
 #navigation {
+  text-align: left;
   position: fixed;
   top: 0;
   right: -400px;
@@ -118,6 +120,28 @@ header #toggle:after {
 #navigation ul li a:hover {
   color: #000;
 }
+.dropdown-btn {
+  text-decoration: none;
+  font-size: 30px;
+  font-weight: 600;
+  color: white;
+  font-family: 'Oswald', sans-serif;
+  display: block;
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+.dropdown-btn:hover {
+  color: black;
+}
+.dropdown {
+  display: none;
+  padding-left: 8px;
+}
+.dropdown-container ul {
+  display: none;
+}
 .content {
   position: absolute;
   max-width: 600px;
@@ -149,9 +173,43 @@ header #toggle:after {
     width: 100px;
   }
 }
+#navigation button {
+  font-size: 1.5em;
+  margin: 5px 20px;
+}
+}
+@media (max-width: 370px) {
+  header {
+    padding: 20px 30px;
+  }
+  .banner {
+    padding: 50px 25px 75px;
+  }
+  .banner .logo {
+    font-size: 0.7em;
+  }
+  .banner .content p {
+    font-size: 1.5em;
+  }
+  .banner .active {
+    transform: translateX(-75px);
+  }
+  #navigation ul li a {
+    font-size: 0.7em;
+    margin: 2px 10px;
+    width: 50px;
+  }
+  #navigation button {
+    font-size: 0.7em;
+    margin: 2px 10px;
+  }
+}
 .dropdown-container {
   position: relative;
   font-size: 15px;
+  overflow: hidden;
+  z-index: 1000;
+}
 }
 
 .dropdown-container .dropdown {
@@ -190,12 +248,13 @@ header #toggle:after {
       <p>BUILD<br>YOUR<span style="color:#000000">SELF.</span></p>
       </div>
       </section>
+
       <div id="navigation">
         <ul>
           <li><a href="index.html">HOME</a><li>
           <li class="dropdown-container">
-            <a href="Train Lab.html">CROSSFIT</a>
-            <ul class="dropdown">
+            <button class="dropdown-btn" style="font-size: 30px;">CROSSFIT<i class="fa fa-caret-down" style="border: none; font-size: 30px;"></i></button>
+            <ul class="dropdown" style="display: none;">
               <li><a href="Train Lab.html" style="font-size: 20px;">TRAIN LAB</a></li>
               <li><a href="DSR Omega.html" style="font-size: 20px;">DSR OMEGA</a></li>
               <li><a href="Superbia.html" style="font-size: 20px;">SUPERBIA</a></li>
@@ -206,22 +265,22 @@ header #toggle:after {
             </ul>
           </li>
           <li class="dropdown-container">
-          <a href="DK Metalac.html">WEIGHTLIFTING</a>
-            <ul class="dropdown">
+          <button class="dropdown-btn" style="font-size: 30px;">WEIGHTLIFTING<i class="fa fa-caret-down" style="border: none; font-size: 30px;"></i></button>
+            <ul class="dropdown" style="display: none;">
               <li><a href="DK Metalac.html" style="font-size: 20px;">DK METALAC</a></li>
             </ul>
           </li>
           <li class="dropdown-container">
-            <a href="Teretana.html">TERETANA</a>
-            <ul class="dropdown">
-              <li><a href="Gyms4you.html" style="font-size: 20px;">GYMS4YOU</a></li>
-              <li><a href="DSR Omega_Teretana.html" style="font-size: 20px;">DSR OMEGA</a></li>
-              <li><a href="Play.html" style="font-size: 20px;">PLAY FITNESS CENTAR</a></li>
-              <li><a href="Vita.html" style="font-size: 20px;">VITA FITNESS & SPA</a></li>
-              <li><a href="Core Gym.html" style="font-size: 20px;">CORE GYM</a></li>
-              <li><a href="MoFit.html" style="font-size: 20px;">MOFIT</a></li>
-              <li><a href="Forma.html" style="font-size: 20px;">FITNESS FORMA</a></li>
-            </ul>
+            <button class="dropdown-btn" style="font-size: 30px;">TERETANA<i class="fa fa-caret-down" style="border: none; font-size: 30px;"></i></button>
+            <div class="dropdown">
+              <a href="Gyms4you.html" style="font-size: 20px;">GYMS4YOU</a><br>
+              <a href="DSR Omega_Teretana.html" style="font-size: 20px;">DSR OMEGA</a><br>
+              <a href="Play.html" style="font-size: 20px;">PLAY FITNESS CENTAR</a><br>
+              <a href="Vita.html" style="font-size: 20px;">VITA FITNESS & SPA</a><br>
+              <a href="Core Gym.html" style="font-size: 20px;">CORE GYM</a><br>
+              <a href="MoFit.html" style="font-size: 20px;">MOFIT</a><br>
+              <a href="Forma.html" style="font-size: 20px;">FITNESS FORMA</a>
+          </div>
           </li>
           <li><a href="Kontakt.html">KONTAKT</a><li>
         </ul>
@@ -235,5 +294,22 @@ header #toggle:after {
       nav.classList.toggle('active');
     }
 </script>
-</body><ay
-      </html>
+
+<script>
+    var dropdown = document.getElementsByClassName("dropdown-btn");
+    var i;
+
+    for (i = 0; i < dropdown.length; i++) {
+    dropdown[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var dropdownContent = this.nextElementSibling;
+    if (dropdownContent.style.display === "block") {
+    dropdownContent.style.display = "none";
+    } else {
+    dropdownContent.style.display = "block";
+    }
+  });
+}
+</script>
+</body>
+</html>
