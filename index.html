@@ -95,7 +95,7 @@ header #toggle:after {
   background: #ffff00;
   z-index: 1;
   display: grid;
-  place-items: center;
+  padding: 40px;
   transition: 0.5s;
 }
 #navigation.active {
@@ -169,7 +169,7 @@ header #toggle:after {
   }
   #navigation ul li a {
     font-size: 1.5em;
-    margin: 5px 0;
+    margin: 5px 20px;
     width: 100px;
   }
 }
@@ -211,31 +211,6 @@ header #toggle:after {
   z-index: 1000;
 }
 }
-
-.dropdown-container .dropdown {
-  position: absolute !important;
-  top: 45px;
-  left: 0;
-  width: 250px;
-  background-color: black;
-  max-height: 0;
-  transition: all .3s ease-in-out;
-  overflow: hidden;
-  z-index: 1000;
-  line-height: 20px;
-}
-
-.dropdown-container .dropdown li {
-  padding: 5px;
-}
-
-.dropdown-container .dropdown li a:hover {
-  color: #ffff00 !important;
-}
-
-.dropdown-container:hover .dropdown {
-  max-height: 1000px;
-}
 </style>
 </head>
 <body>
@@ -253,7 +228,7 @@ header #toggle:after {
         <ul>
           <li><a href="index.html">HOME</a><li>
           <li class="dropdown-container">
-            <button class="dropdown-btn" style="font-size: 30px;">CROSSFIT<i class="fa fa-caret-down" style="border: none; font-size: 30px;"></i></button>
+            <button class="dropdown-btn">CROSSFIT<i class="fa fa-caret-down" style="border: none; font-size: 30px;"></i></button>
             <ul class="dropdown" style="display: none;">
               <li><a href="Train Lab.html" style="font-size: 20px;">TRAIN LAB</a></li>
               <li><a href="DSR Omega.html" style="font-size: 20px;">DSR OMEGA</a></li>
@@ -265,13 +240,13 @@ header #toggle:after {
             </ul>
           </li>
           <li class="dropdown-container">
-          <button class="dropdown-btn" style="font-size: 30px;">WEIGHTLIFTING<i class="fa fa-caret-down" style="border: none; font-size: 30px;"></i></button>
+          <button class="dropdown-btn">WEIGHTLIFTING<i class="fa fa-caret-down" style="border: none; font-size: 30px;"></i></button>
             <ul class="dropdown" style="display: none;">
               <li><a href="DK Metalac.html" style="font-size: 20px;">DK METALAC</a></li>
             </ul>
           </li>
           <li class="dropdown-container">
-            <button class="dropdown-btn" style="font-size: 30px;">TERETANA<i class="fa fa-caret-down" style="border: none; font-size: 30px;"></i></button>
+            <button class="dropdown-btn">TERETANA<i class="fa fa-caret-down" style="border: none; font-size: 30px;"></i></button>
             <div class="dropdown">
               <a href="Gyms4you.html" style="font-size: 20px;">GYMS4YOU</a><br>
               <a href="DSR Omega_Teretana.html" style="font-size: 20px;">DSR OMEGA</a><br>
