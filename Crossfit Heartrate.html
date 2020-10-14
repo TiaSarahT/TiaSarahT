@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
 <title>CROSSFIT HEARTRATE</title>
@@ -265,7 +265,7 @@ header #toggle:after {
 }
 @media screen and (max-width: 600px) {
   div.headline {
-    font-size: 1.3em;
+    font-size: 2em;
     margin-top: -10px;
   }
 }
@@ -276,7 +276,7 @@ header #toggle:after {
 }
 @media screen and (max-width: 600px) {
   div.line {
-    width: 50%;
+    width: 80%;
     margin-top: -10px;
     margin-bottom: 2px;
   }
@@ -392,13 +392,13 @@ header #toggle:after {
     opacity: 0.9;
     border-color: black;
 }
-
-.fa-facebook {
+.fa-instagram {
   margin-top: 13px;
   background: black;
   color: white;
 }
-.fa-instagram {
+.fa-facebook {
+  margin-top: 13px;
   background: black;
   color: white;
 }
@@ -616,17 +616,6 @@ header #toggle:after {
     </div>
   </div>
 
-<script>
-function myFunction() {
-  var x = document.getElementById("myDIV");
-  if (x.style.display === "block") {
-    x.style.display = "none";
-  } else {
-    x.style.display = "block";
-  }
-}
-</script>
-
 
 <div id="navigation">
   <ul>
@@ -665,6 +654,15 @@ function myFunction() {
   </ul>
 </div>
 
+<script>
+  $(".gallery").magnificPopup({
+    delegate: 'a',
+    type: 'image',
+    gallery:{
+      enabled: true
+    }
+  });
+</script>
 
 <script>
     var dropdown = document.getElementsByClassName("dropdown-btn");
@@ -683,15 +681,15 @@ function myFunction() {
 }
 </script>
 
-
       <script>
-        $(".gallery").magnificPopup({
-          delegate: 'a',
-          type: 'image',
-          gallery:{
-            enabled: true
-          }
-        });
+      function myFunction() {
+        var x = document.getElementById("myDIV");
+        if (x.style.display === "block") {
+          x.style.display = "none";
+        } else {
+          x.style.display = "block";
+        }
+      }
       </script>
 
 <script type="text/javascript">
