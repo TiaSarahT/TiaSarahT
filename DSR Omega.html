@@ -33,7 +33,6 @@
   z-index: 1;
   background:linear-gradient(to right,rgba(0,0,0,1), rgba(0,0,0,0.9),rgba(0,0,0,0.5));
 }
-
 #background {
   left: 0;
   top: 0;
@@ -46,13 +45,11 @@
   position: fixed;
   z-index: -1;
 }
-
 @media screen and (min-width: 768px) {
   #background {
     max-height: 100vh;
   }
 }
-
 #background video {
   position: absolute;
   left: -5%;
@@ -63,7 +60,6 @@
   min-width: 100%;
   min-height: 100%;
 }
-
 header {
   position: absolute;
   top: 0;
@@ -126,13 +122,11 @@ header #toggle:after {
   align-items: center;
   transition: 0.5s;
 }
-
 @media screen and (min-width: 768px) {
     .banner.active {
         transform: translateX(-400px);
     }
 }
-
 #navigation {
   text-align: left;
   position: fixed;
@@ -140,7 +134,7 @@ header #toggle:after {
   right: -400px;
   width: 400px;
   height: 100%;
-  background: #ffff00;
+  background: #fff200;
   z-index: 1;
   display: grid;
   padding: 40px;
@@ -158,7 +152,7 @@ header #toggle:after {
   list-style: none;
 }
 #navigation ul li a {
-  color: #fff;
+  color: white;
   text-decoration: none;
   display: inline-block;
   font-size: 30px;
@@ -166,7 +160,7 @@ header #toggle:after {
   text-transform: uppercase;
 }
 #navigation ul li a:hover {
-  color: #000;
+  color: black;
 }
 .dropdown-btn {
   text-decoration: none;
@@ -183,6 +177,13 @@ header #toggle:after {
 .dropdown-btn:hover {
   color: black;
 }
+#navigation .dropdown a {
+  color: black;
+  font-size: 20px;
+}
+#navigation .dropdown a:hover {
+  color: white;
+}
 .dropdown {
   display: none;
   padding-left: 8px;
@@ -198,30 +199,78 @@ header #toggle:after {
 .content {
     max-width: 600px;
 }
+.headline {
+  color: white;
+  font-size: 2.6em;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  text-align: left;
+  margin-left: 2px;
+}
 @media (max-width: 767px) {
   header {
     padding: 20px 50px;
   }
   .banner {
-    padding: 100px 50px 150px;
+    padding: 100px 47px 150px;
   }
   .banner .logo {
     font-size: 1.5em;
   }
-  .banner .content p {
-    font-size: 3em;
-  }
+}
+@media screen and (max-width: 767px) {
   .banner .active {
-    transform: translateX(-150px);
+    transform: translateX(-280px);
+  }
+  div.headline {
+    font-size: 1.8em;
+    margin-top: -8px;
+    margin-bottom: -5px;
+  }
+  div.text {
+    font-size: 0.9em;
+    margin-top: -10px;
+  }
+  div.contact h3 {
+    font-size: 1em;
+  }
+  div.contact p {
+    font-size: 0.7em;
+  }
+  div.time h3 {
+    font-size: 1em;
+  }
+  div.time p {
+    font-size: 0.7em;
+  }
+  div.price h3 {
+    font-size: 0.9em;
+  }
+  div.price p {
+    font-size: 0.7em;
+  }
+  div.location h3 {
+    font-size: 1em;
+  }
+  div.line {
+    width: 80%;
+    margin-top: 10px;
   }
   #navigation ul li a {
-    font-size: 1.5em;
-    margin: 5px 20px;
-    width: 100px;
+    font-size: 1.4em;
   }
-  #navigation button {
-    font-size: 1.5em;
-    margin: 5px 20px;
+  #navigation .dropdown a {
+    font-size: 1.4em;
+  }
+  #navigation .dropdown a {
+    font-size: 1.1em;
+  }
+  .dropdown-btn {
+    font-size: 1.4em;
+    padding: 0px;
+  }
+  #navigation .fa-caret-down {
+    font-size: 1em;
   }
 }
 @media (max-width: 370px) {
@@ -229,74 +278,118 @@ header #toggle:after {
     padding: 20px 30px;
   }
   .banner {
-    padding: 50px 25px 75px;
+    padding: 50px 27px 75px;
   }
   .banner .logo {
-    font-size: 0.7em;
+    font-size: 0.8em;
   }
   .banner .content p {
     font-size: 1.5em;
   }
   .banner .active {
-    transform: translateX(-75px);
+    transform: translateX(-300px);
   }
   #navigation ul li a {
-    font-size: 0.7em;
+    font-size: 1em;
     margin: 2px 10px;
     width: 50px;
   }
   #navigation button {
-    font-size: 0.7em;
-    margin: 2px 10px;
+    font-size: 1em;
+    margin-left: 10px;
+    margin-bottom: -10px;
   }
-}
-
-.headline {
-  color: white;
-  font-size: 2.8em;
-  margin-top: 40px;
-  text-align: left;
-  margin-left: 3px;
-}
-@media screen and (min-width: 601px) {
+  #navigation .dropdown a {
+    font-size: 0.7em;
+  }
   div.headline {
-    font-size: 2.8em;
+    font-size: 1em;
+  }
+  div.contact h3 {
+    font-size: 1.5em;
+  }
+  div.contact p {
+    font-size: 1.2em;
+  }
+  div.time h3 {
+    font-size: 1.3em;
+  }
+  div .time p {
+    font-size: 1.5em;
+  }
+  div.links a {
+    width: 10px;
+    height: 10px;
   }
 }
 @media screen and (max-width: 600px) {
   div.headline {
-    font-size: 2em;
+    font-size: 1.4em;
     margin-top: -10px;
+  }
+  div.line {
+    width: 55%;
+    margin-top: 5px;
+    margin-bottom: 2px;
+  }
+  div.text {
+    font-size: 0.6em;
+    margin-top: -5px;
+  }
+  div.contact h3 {
+    font-size: 1.5em;
+  }
+  div.contact p {
+    font-size: 0.9em;
+  }
+  div.location h3 {
+    font-size: 1.6em;
+  }
+  div.price h3 {
+    font-size: 0.9em;
+  }
+  div.time h3 {
+    font-size: 1.5em;
+  }
+  div.time p {
+    font-size: 0.9em;
+  }
+  div.links a {
+    width: 25px;
+    height: 25px;
+  }
+  .links .fa-facebook {
+    font-size: 1.5em;
+  }
+  .links .fa-instagram {
+    font-size: 1.5em;
+  }
+  .links .fa-google {
+    font-size: 1.5em;
   }
 }
 @media screen and (max-width: 370px) {
   div.headline {
-    font-size: 1em;
-  }
-}
-@media screen and (max-width: 600px) {
-  div.line {
-    width: 80%;
-    margin-top: -10px;
-    margin-bottom: 2px;
+    font-size: 0.9em;
   }
 }
 @media screen and (max-width: 360px) {
   div.line {
     width: 45%;
-    margin-top: -10px;
+    margin-top: 3px;
     margin-bottom: 2px;
   }
 }
-@media screen and (max-width: 370px) {
-  div.time h3 {
-    font-size: 1.3em;
+@media screen and (max-width: 360px) {
+div.price h3 {
+  font-size: 0.6em;
   }
 }
 .line {
   overflow: hidden;
   margin-bottom: 10px;
   text-align: left;
+  margin-left: 5px;
 }
 .text {
   color: white;
@@ -306,16 +399,9 @@ header #toggle:after {
   margin-left: 5px;
   font-weight: 300;
 }
-@media screen and (min-width: 601px) {
-  div.text {
-    font-size: 1em;
-  }
-}
-@media screen and (max-width: 600px) {
-  div.text {
-    font-size: 0.6em;
-    margin-top: -5px;
-  }
+.contact h3 {
+  margin-top: 5px;
+  font-size: 18px;
 }
 @media screen and (max-width: 360px) {
   div.text {
@@ -323,42 +409,8 @@ header #toggle:after {
     margin-top: -10px;
   }
 }
-.contact h3 {
-  margin-top: 5px;
-  font-size: 18px;
-}
-@media screen and (min-width: 601px) {
-  div.contact h3 {
-    font-size: 1.2em;
-  }
-}
-@media screen and (max-width: 600px) {
-  div.contact h3 {
-    font-size: 1.5em;
-  }
-}
-@media screen and (max-width: 370px) {
-  div.contact h3 {
-    font-size: 1.5em;
-  }
-}
 .contact p {
   font-size: 12px;
-}
-@media screen and (min-width: 601px) {
-  div.contact p {
-    font-size: 0.7em;
-  }
-}
-@media screen and (max-width: 600px) {
-  div.contact p {
-    font-size: 0.9em;
-  }
-}
-@media screen and (max-width: 370px) {
-  div.contact p {
-    font-size: 1.2em;
-  }
 }
 .dropdown-container {
   position: relative;
@@ -387,18 +439,18 @@ header #toggle:after {
 }
 
 .fa:hover {
-    background-color: #ffff00;
+    background-color: #fff200;
     color: black;
     opacity: 0.9;
     border-color: black;
 }
-.fa-instagram {
+
+.fa-facebook {
   margin-top: 13px;
   background: black;
   color: white;
 }
-.fa-facebook {
-  margin-top: 13px;
+.fa-instagram {
   background: black;
   color: white;
 }
@@ -406,25 +458,19 @@ header #toggle:after {
   background: black;
   color: white;
 }
+.fa-caret-down {
+  border: none;
+  font-size: 30px;
+}
 @media screen and (max-width: 370px) {
   div.links a {
     font-size: 1.8em;
-    width: 24px;
-    height: 24px;
-  }
-}
-@media screen and (max-width: 600px) {
-  div.links a {
-    margin-bottom: 10px;
+    width: 20px;
+    height: 20px;
   }
 }
 .location h3:hover {
-  color: #ffff00;
-}
-@media screen and (max-width: 600px) {
-  div.location h3 {
-    font-size: 1.6em;
-  }
+  color: #fff200;
 }
 @media screen and (max-width: 360px) {
   div.location h3 {
@@ -432,45 +478,10 @@ header #toggle:after {
   }
 }
 .price h3:hover {
-  color: #ffff00;
-}
-@media screen and (min-width: 601px) {
-  div.price h3 {
-    font-size: 1.1em;
-  }
-}
-@media screen and (max-width: 600px) {
-  div.price h3 {
-    font-size: 0.9em;
-  }
-}
-@media screen and (max-width: 370px) {
-  div.price h3 {
-    font-size: 0.6em;
-  }
-}
-@media screen and (min-width: 601px) {
-  div.time h3 {
-    font-size: 1.2em;
-  }
-}
-@media screen and (max-width: 600px) {
-  div.time h3 {
-    font-size: 1.5em;
-  }
+  color: #fff200;
 }
 .time p {
   font-size: 12px;
-}
-@media screen and (min-width: 601px) {
-  div.time p {
-    font-size: 0.7em;
-  }
-}
-@media screen and (max-width: 600px) {
-  div.time p {
-    font-size: 0.9em;
-  }
 }
 @media screen and (max-width: 700px) {
   .column {
@@ -563,9 +574,8 @@ header #toggle:after {
 
            <div class="time" style="margin-top:10px; margin-bottom: 5px;">
                     <h3>RADNO VRIJEME</h3>
-                    <p style="font-size: 12px;">PON-PET : 10:00-20:30h<br>
-                       SUB : 15:00-20:00h<br>
-                       NED : Zatvoreno</p>
+                    <p>PON-SUB : 09:00-22:30h<br>
+                                                NED : 16:00-22:00h</p>
            </div>
 
            <div class="price">
@@ -623,33 +633,33 @@ header #toggle:after {
   <ul>
     <li><a href="index.html">HOME</a><li>
     <li class="dropdown-container">
-      <button class="dropdown-btn">CROSSFIT<i class="fa fa-caret-down" style="border: none; font-size: 30px;"></i></button>
+      <button class="dropdown-btn">CROSSFIT<i class="fa fa-caret-down"></i></button>
       <ul class="dropdown" style="display: none;">
-        <li><a href="Train Lab.html" style="font-size: 20px;">TRAIN LAB</a></li>
-        <li><a href="DSR Omega.html" style="font-size: 20px;">DSR OMEGA</a></li>
-        <li><a href="Superbia.html" style="font-size: 20px;">SUPERBIA</a></li>
-        <li><a href="GoldenGym.html" style="font-size: 20px;">GOLDEN GYM</a></li>
-        <li><a href="Crossfit Zagreb.html" style="font-size: 20px;">CROSSFIT ZAGREB</a></li>
-        <li><a href="Crossfit Heartrate.html" style="font-size: 20px;">CROSSFIT HEARTRATE</a></li>
-        <li><a href="Crossfit Maksimir" style="font-size: 20px;">CROSSFIT MAKSIMIR</a></li>
+        <li><a href="Train Lab.html">TRAIN LAB</a></li>
+        <li><a href="DSR Omega.html">DSR OMEGA</a></li>
+        <li><a href="Superbia.html">SUPERBIA</a></li>
+        <li><a href="GoldenGym.html">GOLDEN GYM</a></li>
+        <li><a href="Crossfit Zagreb.html">CROSSFIT ZAGREB</a></li>
+        <li><a href="Crossfit Heartrate.html">CROSSFIT HEARTRATE</a></li>
+        <li><a href="Crossfit Maksimir">CROSSFIT MAKSIMIR</a></li>
       </ul>
     </li>
     <li class="dropdown-container">
-    <button class="dropdown-btn">WEIGHTLIFTING<i class="fa fa-caret-down" style="border: none; font-size: 30px;"></i></button>
+    <button class="dropdown-btn">WEIGHTLIFTING<i class="fa fa-caret-down"></i></button>
       <ul class="dropdown" style="display: none;">
-        <li><a href="DK Metalac.html" style="font-size: 20px;">DK METALAC</a></li>
+        <li><a href="DK Metalac.html">DK METALAC</a></li>
       </ul>
     </li>
     <li class="dropdown-container">
-      <button class="dropdown-btn">TERETANA<i class="fa fa-caret-down" style="border: none; font-size: 30px;"></i></button>
+      <button class="dropdown-btn">TERETANA<i class="fa fa-caret-down"></i></button>
       <div class="dropdown">
-        <a href="Gyms4you.html" style="font-size: 20px;">GYMS4YOU</a><br>
-        <a href="DSR Omega_Teretana.html" style="font-size: 20px;">DSR OMEGA</a><br>
-        <a href="Play.html" style="font-size: 20px;">PLAY FITNESS CENTAR</a><br>
-        <a href="Vita.html" style="font-size: 20px;">VITA FITNESS & SPA</a><br>
-        <a href="Core Gym.html" style="font-size: 20px;">CORE GYM</a><br>
-        <a href="MoFit.html" style="font-size: 20px;">MOFIT</a><br>
-        <a href="Forma.html" style="font-size: 20px;">FITNESS FORMA</a>
+        <a href="Gyms4you.html">GYMS4YOU</a><br>
+        <a href="DSR Omega_Teretana.html">DSR OMEGA</a><br>
+        <a href="Play.html">PLAY FITNESS CENTAR</a><br>
+        <a href="Vita.html">VITA FITNESS & SPA</a><br>
+        <a href="Core Gym.html">CORE GYM</a><br>
+        <a href="MoFit.html">MOFIT</a><br>
+        <a href="Forma.html">FITNESS FORMA</a>
     </div>
     </li>
     <li><a href="Kontakt.html">KONTAKT</a><li>
