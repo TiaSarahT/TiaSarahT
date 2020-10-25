@@ -144,9 +144,6 @@ header #toggle:after {
   display: none;
   padding-left: 8px;
 }
-.dropdown-container ul {
-  display: none;
-}
 .content {
   position: absolute;
   max-width: 600px;
@@ -156,7 +153,7 @@ header #toggle:after {
   color: #ffff00;
   margin-top: 300px;
 }
-@media (max-width: 767px) {
+@media screen and (max-width: 767px) {
   header {
     padding: 20px 50px;
   }
@@ -189,37 +186,43 @@ header #toggle:after {
   }
 }
 @media (max-width: 370px) {
-  header {
-    padding: 20px 30px;
+  media (max-width: 370px) {
+    header {
+      padding: 20px 30px;
+    }
+    .banner {
+      padding: 50px 27px 75px;
+    }
+    .banner .logo {
+      font-size: 0.8em;
+    }
+    .banner .content p {
+      font-size: 1.5em;
+    }
+    .banner.active {
+      transform: translateX(-300px);
+    }
+    #navigation ul li a {
+      font-size: 1em;
+      margin: 2px 10px;
+    }
+    #navigation .dropdown a {
+      font-size: 0.7em;
+    }
+    .dropdown-btn {
+      font-size: 1em;
+      padding-left: 10px;
+    }
   }
-  .banner {
-    padding: 50px 27px 75px;
-  }
-  .banner .logo {
-    font-size: 0.8em;
-  }
-  .banner .content p {
-    font-size: 1.5em;
-  }
-  .banner.active {
-    transform: translateX(-300px);
-  }
-  #navigation ul li a {
-    font-size: 1em;
-    margin: 2px 10px;
-  }
-  #navigation .dropdown a {
-    font-size: 0.7em;
-  }
-  .dropdown-btn {
-    font-size: 1em;
-    padding-left: 10px;
-  }
-}
 .dropdown-container {
   position: relative;
   overflow: visible;
   z-index: 1000;
+}
+@media (max-width: 600px) {
+  .content p {
+    font-size: 4em;
+  }
 }
 </style>
 </head>
