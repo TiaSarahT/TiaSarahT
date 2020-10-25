@@ -188,9 +188,6 @@ header #toggle:after {
   display: none;
   padding-left: 8px;
 }
-.dropdown-container ul {
-  display: none;
-}
 .body-content {
   max-width: 100%;
   display: flex;
@@ -219,7 +216,7 @@ header #toggle:after {
   }
 }
 @media screen and (max-width: 767px) {
-  .banner .active {
+  .banner.active {
     transform: translateX(-280px);
   }
   div.headline {
@@ -286,21 +283,19 @@ header #toggle:after {
   .banner .content p {
     font-size: 1.5em;
   }
-  .banner .active {
-    transform: translateX(-300px);
+  .banner.active {
+    transform: translateX(-400px);
   }
   #navigation ul li a {
     font-size: 1em;
     margin: 2px 10px;
-    width: 50px;
-  }
-  #navigation button {
-    font-size: 1em;
-    margin-left: 10px;
-    margin-bottom: -10px;
   }
   #navigation .dropdown a {
     font-size: 0.7em;
+  }
+  .dropdown-btn {
+    font-size: 1em;
+    padding-left: 10px;
   }
   div.headline {
     font-size: 1em;
@@ -328,7 +323,7 @@ header #toggle:after {
     margin-top: -10px;
   }
   div.line {
-    width: 55%;
+    width: 65%;
     margin-top: 5px;
     margin-bottom: 2px;
   }
@@ -375,7 +370,7 @@ header #toggle:after {
 }
 @media screen and (max-width: 360px) {
   div.line {
-    width: 45%;
+    width: 40%;
     margin-top: 3px;
     margin-bottom: 2px;
   }
@@ -406,7 +401,6 @@ div.price h3 {
 @media screen and (max-width: 360px) {
   div.text {
     font-size: 0.4em;
-    margin-top: -10px;
   }
 }
 .contact p {
@@ -414,18 +408,13 @@ div.price h3 {
 }
 .dropdown-container {
   position: relative;
-  font-size: 15px;
-  overflow: hidden;
+  overflow: visible;
   z-index: 1000;
 }
 #myDIV {
   display: none;
   text-align: left;
   color: white;
-}
-.container {
-  float: right;
-  margin-bottom: 120px;
 }
 .fa {
   height: 32px;
@@ -531,14 +520,24 @@ div.price h3 {
 }
 @media screen and (max-width:480px) {
     .gallery-section .image{
-      flex: 100%;
+      flex: 80%;
+  }
+  .gallery-section .image img {
+    width: 70%;
+    height: auto;
+    float: left;
   }
 }
 @media screen and (max-width:360px) {
     .gallery-section .image{
-      flex: 50%;
+      flex: 55%;
       margin-top: -20px;
       padding-bottom: 20px;
+  }
+  .gallery-section .image img {
+    width: 60%;
+    height: auto;
+    float: left;
   }
 }
 </style>
@@ -564,7 +563,7 @@ div.price h3 {
     </div>
 
     <div class="line">
-      <img src="Slike/Linija.png" alt="Line" style="width: 420px;">
+      <img src="Slike/Linija.png" alt="Line" style="width: 480px;">
     </div>
 
     <div class="text">
