@@ -20,7 +20,7 @@ header {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 40px 100px;
+  padding: 40px 78px;
   z-index: 10000;
   transition: 0.6s;
 }
@@ -78,13 +78,11 @@ header #toggle:after {
   align-items: center;
   transition: 0.5s;
 }
-
 @media screen and (min-width: 768px) {
     .banner.active {
     transform: translateX(-400px);
     }
 }
-
 #navigation {
   text-align: left;
   position: fixed;
@@ -135,7 +133,7 @@ header #toggle:after {
 .dropdown-btn:hover {
   color: black;
 }
-  #navigation .dropdown a {
+#navigation .dropdown a {
   color: black;
   font-size: 20px;
 }
@@ -163,60 +161,65 @@ header #toggle:after {
     padding: 20px 50px;
   }
   .banner {
-    padding: 100px 50px 150px;
+    padding: 100px 47px 150px;
   }
   .banner .logo {
     font-size: 1.5em;
   }
-  .banner .content p {
-    font-size: 3em;
-  }
-  .banner .active {
-    transform: translateX(-150px);
+}
+@media screen and (max-width: 767px) {
+  .banner.active {
+    transform: translateX(-280px);
   }
   #navigation ul li a {
-    font-size: 1.5em;
-    margin: 5px 20px;
-    width: 100px;
+    font-size: 1.4em;
   }
-}
-#navigation button {
-  font-size: 1.5em;
-  margin: 5px 20px;
-}
+  #navigation .dropdown a {
+    font-size: 1.4em;
+  }
+  #navigation .dropdown a {
+    font-size: 1.1em;
+  }
+  .dropdown-btn {
+    font-size: 1.4em;
+    padding: 0px;
+  }
+  #navigation .fa-caret-down {
+    font-size: 1em;
+  }
 }
 @media (max-width: 370px) {
   header {
     padding: 20px 30px;
   }
   .banner {
-    padding: 50px 25px 75px;
+    padding: 50px 27px 75px;
   }
   .banner .logo {
-    font-size: 0.7em;
+    font-size: 0.8em;
   }
   .banner .content p {
     font-size: 1.5em;
   }
-  .banner .active {
-    transform: translateX(-75px);
+  .banner.active {
+    transform: translateX(-300px);
   }
   #navigation ul li a {
-    font-size: 0.7em;
+    font-size: 1em;
     margin: 2px 10px;
-    width: 50px;
   }
-  #navigation button {
+  #navigation .dropdown a {
     font-size: 0.7em;
-    margin: 2px 10px;
+  }
+  .dropdown-btn {
+    font-size: 1em;
+    padding-left: 10px;
   }
 }
 .dropdown-container {
   position: relative;
-  font-size: 15px;
-  overflow: hidden;
+  overflow: visible;
   z-index: 1000;
-}
 }
 </style>
 </head>
@@ -235,33 +238,33 @@ header #toggle:after {
         <ul>
           <li><a href="index.html">HOME</a><li>
           <li class="dropdown-container">
-            <button class="dropdown-btn">CROSSFIT<i class="fa fa-caret-down" style="border: none; font-size: 30px;"></i></button>
+            <button class="dropdown-btn">CROSSFIT<i class="fa fa-caret-down"></i></button>
             <ul class="dropdown" style="display: none;">
-              <li><a href="Train Lab.html" style="font-size: 20px;">TRAIN LAB</a></li>
-              <li><a href="DSR Omega.html" style="font-size: 20px;">DSR OMEGA</a></li>
-              <li><a href="Superbia.html" style="font-size: 20px;">SUPERBIA</a></li>
-              <li><a href="GoldenGym.html" style="font-size: 20px;">GOLDEN GYM</a></li>
-              <li><a href="Crossfit Zagreb.html" style="font-size: 20px;">CROSSFIT ZAGREB</a></li>
-              <li><a href="Crossfit Heartrate.html" style="font-size: 20px;">CROSSFIT HEARTRATE</a></li>
-              <li><a href="Crossfit Maksimir" style="font-size: 20px;">CROSSFIT MAKSIMIR</a></li>
+              <li><a href="Train Lab.html">TRAIN LAB</a></li>
+              <li><a href="DSR Omega.html">DSR OMEGA</a></li>
+              <li><a href="Superbia.html">SUPERBIA</a></li>
+              <li><a href="GoldenGym.html">GOLDEN GYM</a></li>
+              <li><a href="Crossfit Zagreb.html">CROSSFIT ZAGREB</a></li>
+              <li><a href="Crossfit Heartrate.html">CROSSFIT HEARTRATE</a></li>
+              <li><a href="Crossfit Maksimir">CROSSFIT MAKSIMIR</a></li>
             </ul>
           </li>
           <li class="dropdown-container">
-          <button class="dropdown-btn">WEIGHTLIFTING<i class="fa fa-caret-down" style="border: none; font-size: 30px;"></i></button>
+          <button class="dropdown-btn">WEIGHTLIFTING<i class="fa fa-caret-down"></i></button>
             <ul class="dropdown" style="display: none;">
-              <li><a href="DK Metalac.html" style="font-size: 20px;">DK METALAC</a></li>
+              <li><a href="DK Metalac.html">DK METALAC</a></li>
             </ul>
           </li>
           <li class="dropdown-container">
-            <button class="dropdown-btn">TERETANA<i class="fa fa-caret-down" style="border: none; font-size: 30px;"></i></button>
+            <button class="dropdown-btn">TERETANA<i class="fa fa-caret-down"></i></button>
             <div class="dropdown">
-              <a href="Gyms4you.html" style="font-size: 20px;">GYMS4YOU</a><br>
-              <a href="DSR Omega_Teretana.html" style="font-size: 20px;">DSR OMEGA</a><br>
-              <a href="Play.html" style="font-size: 20px;">PLAY FITNESS CENTAR</a><br>
-              <a href="Vita.html" style="font-size: 20px;">VITA FITNESS & SPA</a><br>
-              <a href="Core Gym.html" style="font-size: 20px;">CORE GYM</a><br>
-              <a href="MoFit.html" style="font-size: 20px;">MOFIT</a><br>
-              <a href="Forma.html" style="font-size: 20px;">FITNESS FORMA</a>
+              <a href="Gyms4you.html">GYMS4YOU</a><br>
+              <a href="DSR Omega_Teretana.html">DSR OMEGA</a><br>
+              <a href="Play.html">PLAY FITNESS CENTAR</a><br>
+              <a href="Vita.html">VITA FITNESS & SPA</a><br>
+              <a href="Core Gym.html">CORE GYM</a><br>
+              <a href="MoFit.html">MOFIT</a><br>
+              <a href="Forma.html">FITNESS FORMA</a>
           </div>
           </li>
           <li><a href="Kontakt.html">KONTAKT</a><li>
