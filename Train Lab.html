@@ -188,9 +188,6 @@ header #toggle:after {
   display: none;
   padding-left: 8px;
 }
-.dropdown-container ul {
-  display: none;
-}
 .body-content {
   max-width: 100%;
   display: flex;
@@ -219,7 +216,7 @@ header #toggle:after {
   }
 }
 @media screen and (max-width: 767px) {
-  .banner .active {
+  .banner.active {
     transform: translateX(-280px);
   }
   div.headline {
@@ -286,21 +283,19 @@ header #toggle:after {
   .banner .content p {
     font-size: 1.5em;
   }
-  .banner .active {
+  .banner.active {
     transform: translateX(-300px);
   }
   #navigation ul li a {
     font-size: 1em;
     margin: 2px 10px;
-    width: 50px;
-  }
-  #navigation button {
-    font-size: 1em;
-    margin-left: 10px;
-    margin-bottom: -10px;
   }
   #navigation .dropdown a {
     font-size: 0.7em;
+  }
+  .dropdown-btn {
+    font-size: 1em;
+    padding-left: 10px;
   }
   div.headline {
     font-size: 1em;
@@ -328,7 +323,7 @@ header #toggle:after {
     margin-top: -10px;
   }
   div.line {
-    width: 55%;
+    width: 65%;
     margin-top: 5px;
     margin-bottom: 2px;
   }
@@ -406,7 +401,6 @@ div.price h3 {
 @media screen and (max-width: 360px) {
   div.text {
     font-size: 0.4em;
-    margin-top: -10px;
   }
 }
 .contact p {
@@ -414,18 +408,13 @@ div.price h3 {
 }
 .dropdown-container {
   position: relative;
-  font-size: 15px;
-  overflow: hidden;
+  overflow: visible;
   z-index: 1000;
 }
 #myDIV {
   display: none;
   text-align: left;
   color: white;
-}
-.container {
-  float: right;
-  margin-bottom: 120px;
 }
 .fa {
   height: 32px;
@@ -531,14 +520,24 @@ div.price h3 {
 }
 @media screen and (max-width:480px) {
     .gallery-section .image{
-      flex: 100%;
+      flex: 80%;
+  }
+  .gallery-section .image img {
+    width: 80%;
+    height: auto;
+    float: left;
   }
 }
 @media screen and (max-width:360px) {
     .gallery-section .image{
-      flex: 50%;
+      flex: 55%;
       margin-top: -20px;
       padding-bottom: 20px;
+  }
+  .gallery-section .image img {
+    width: 70%;
+    height: auto;
+    float: left;
   }
 }
 </style>
@@ -568,8 +567,8 @@ div.price h3 {
     </div>
 
     <div class="text">
-        <p>Centar za sportsku rekreaciju koji ima cilj pomoću vježbi<br>
-           svakom svom članu podariti tijelo spremno za funkcionalni život.</p>
+        <p>Centar za sportsku rekreaciju koji ima cilj pomoću vježbi
+           svakom svom članu<br>podariti tijelo spremno za funkcionalni život.</p>
 
            <div class="time" style="margin-top:10px; margin-bottom: 5px;">
                     <h3>RADNO VRIJEME</h3>
@@ -595,9 +594,10 @@ div.price h3 {
     <a href="https://www.google.com/maps/dir/45.7736809,15.9224048/45.7933746,15.9972095/@45.7811796,15.9280778,13z/data=!3m1!4b1!4m4!4m3!1m1!4e1!1m0"
     style="color: white; text-decoration: none;"><h3>LOKACIJA</h3></a>
     </div>
-
+<div class="links">
     <a href="https://www.facebook.com/trainlabzagreb" class="fa fa-facebook"></a>
     <a href="https://www.instagram.com/trainlabzagreb/?hl=hr" class="fa fa-instagram"></a>
+  </div>
     </div>
 
     <div class="gallery-section">
