@@ -338,7 +338,7 @@ header #toggle:after {
     font-size: 0.9em;
   }
   div.location h3 {
-    font-size: 1.6em;
+    font-size: 1.1em;
   }
   div.price h3 {
     font-size: 0.9em;
@@ -416,6 +416,11 @@ div.price h3 {
   text-align: left;
   color: white;
 }
+#myDIVdva {
+  display: none;
+  text-align: left;
+  color: white;
+}
 .fa {
   height: 32px;
   font-size: 20px;
@@ -461,9 +466,12 @@ div.price h3 {
 .location h3:hover {
   color: #fce205;
 }
+.location h3 {
+  font-size: 18px;
+}
 @media screen and (max-width: 360px) {
   div.location h3 {
-    font-size: 1.5em;
+    font-size: 0.9em;
   }
 }
 .price h3:hover {
@@ -580,7 +588,7 @@ div.price h3 {
            <div class="price">
            <button onclick="myFunction()" style="color: white; background-color: black; border: 0; font-size: 18px; margin-top: 5px;"><h3>CJENIK<h3></button>
            <div id="myDIV">
-             MJESEĆNA ČLANARINA : 199kn<br>
+             MJESEČNA ČLANARINA : 199kn<br>
              STUDENTSKA ČLANARINA : 169kn
            </div>
          </div>
@@ -597,6 +605,8 @@ div.price h3 {
     </div>
 
     <div class="location">
+      <button onclick="myFunction()" style="color: white; background-color: black; border: 0; margin-top: 5px;"><h3>LOKACIJE<h3></button>
+<div id="myDIVdva">
     <a href="https://www.google.com/search?client=firefox-b-d&q=lokacije+gyms+4+you&npsic=0&rflfq=1&rldoc=1&rlha=0&rllag=45796616,15991541,1779&tbm=lcl&sa=X&ved=2ahUKEwjuroyjmrHsAhUC_CoKHXzTAa4QjGp6BAgLEC4&biw=1525&bih=730#rlfi=hd:;si:5075551927134502293,l,ChNsb2thY2lqZSBneW1zIDQgeW91IgOIAQFaGAoKZ3ltcyA0IHlvdSIKZ3ltcyA0IHlvdZoBJENoZERTVWhOTUc5blMwVkpRMEZuU1VSamMzTmlTSE5uUlJBQg;mv:[[45.8463778,16.073419599999998],[45.4701728,15.520019]]"
     style="color: white; text-decoration: none;"><h3>LOKACIJA REMIZA</h3></a>
     <a href="https://www.google.com/search?client=firefox-b-d&q=lokacije+gyms+4+you&npsic=0&rflfq=1&rldoc=1&rlha=0&rllag=45796616,15991541,1779&tbm=lcl&sa=X&ved=2ahUKEwjuroyjmrHsAhUC_CoKHXzTAa4QjGp6BAgLEC4&biw=1525&bih=730#rlfi=hd:;si:6464861869134843511,l,ChNsb2thY2lqZSBneW1zIDQgeW91IgOIAQFaGAoKZ3ltcyA0IHlvdSIKZ3ltcyA0IHlvdZoBJENoZERTVWhOTUc5blMwVkpRMEZuU1VOemRUWllkbmhuUlJBQg;mv:[[45.8463778,16.073419599999998],[45.4701728,15.520019]]"
@@ -612,6 +622,7 @@ div.price h3 {
     <a href="https://www.google.com/search?client=firefox-b-d&q=lokacije+gyms+4+you&npsic=0&rflfq=1&rldoc=1&rlha=0&rllag=45796616,15991541,1779&tbm=lcl&sa=X&ved=2ahUKEwjuroyjmrHsAhUC_CoKHXzTAa4QjGp6BAgLEC4&biw=1525&bih=730#rlfi=hd:;si:5627808423369811787,l,ChNsb2thY2lqZSBneW1zIDQgeW91IgOIAQFaGAoKZ3ltcyA0IHlvdSIKZ3ltcyA0IHlvdZoBI0NoWkRTVWhOTUc5blMwVkpRMEZuU1VRNGJEaG1jRTFCRUFF;mv:[[45.8463778,16.073419599999998],[45.4701728,15.520019]]"
     style="color: white; text-decoration: none;"><h3>LOKACIJA HEINZLOVA</h3></a>
     </div>
+  </div>
 
     <div class="links">
         <a href="https://www.facebook.com/Gyms4YouHrvatska/" class="fa fa-facebook"></a>
@@ -713,6 +724,17 @@ div.price h3 {
           <script>
           function myFunction() {
             var x = document.getElementById("myDIV");
+            if (x.style.display === "block") {
+              x.style.display = "none";
+            } else {
+              x.style.display = "block";
+            }
+          }
+          </script>
+
+          <script>
+          function myFunction() {
+            var x = document.getElementById("myDIVdva");
             if (x.style.display === "block") {
               x.style.display = "none";
             } else {
