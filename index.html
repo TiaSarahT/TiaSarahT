@@ -20,7 +20,7 @@ header {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 40px 78px;
+  padding: 40px 100px;
   z-index: 10000;
   transition: 0.6s;
 }
@@ -82,6 +82,11 @@ header #toggle:after {
     .banner.active {
     transform: translateX(-400px);
     }
+}
+@media screen and (max-width: 767px) {
+.banner.active {
+transform: translateX(-400px);
+}
 }
 #navigation {
   text-align: left;
@@ -150,7 +155,7 @@ header #toggle:after {
 }
 .content p {
   font-size: 100px;
-  color: #ffff00;
+  color: #fce205;
   margin-top: 300px;
 }
 @media screen and (max-width: 767px) {
@@ -165,9 +170,6 @@ header #toggle:after {
   }
 }
 @media screen and (max-width: 767px) {
-  .banner.active {
-    transform: translateX(-280px);
-  }
   #navigation ul li a {
     font-size: 1.4em;
   }
@@ -185,44 +187,45 @@ header #toggle:after {
     font-size: 1em;
   }
 }
-@media (max-width: 370px) {
-  media (max-width: 370px) {
-    header {
-      padding: 20px 30px;
-    }
-    .banner {
-      padding: 50px 27px 75px;
-    }
-    .banner .logo {
-      font-size: 0.8em;
-    }
-    .banner .content p {
-      font-size: 1.5em;
-    }
-    .banner.active {
-      transform: translateX(-300px);
-    }
-    #navigation ul li a {
-      font-size: 1em;
-      margin: 2px 10px;
-    }
-    #navigation .dropdown a {
-      font-size: 0.7em;
-    }
-    .dropdown-btn {
-      font-size: 1em;
-      padding-left: 10px;
-    }
+@media (max-width: 600px) {
+.banner .content p {
+  font-size: 4em;
+}
+}
+@media (max-width: 360px) {
+  .banner.active {
+    transform: translateX(-200px);
   }
+}
+@media (max-width: 370px) {
+  header {
+    padding: 20px 30px;
+  }
+  .banner {
+    padding: 50px 27px 75px;
+  }
+  .banner .logo {
+    font-size: 0.8em;
+  }
+  .banner .content p {
+    font-size: 3em;
+  }
+  #navigation ul li a {
+    font-size: 1em;
+    margin: 2px 10px;
+  }
+  #navigation .dropdown a {
+    font-size: 0.7em;
+  }
+  .dropdown-btn {
+    font-size: 1em;
+    padding-left: 10px;
+  }
+}
 .dropdown-container {
   position: relative;
   overflow: visible;
   z-index: 1000;
-}
-@media (max-width: 600px) {
-  .content p {
-    font-size: 4em;
-  }
 }
 </style>
 </head>
@@ -232,47 +235,67 @@ header #toggle:after {
       <a href="index.html" class="logo">FITNESS</a>
       <div id="toggle" onclick="toggle()"></div>
     </header>
+
     <div class="content">
       <p>BUILD<br>YOUR<span style="color:#000000">SELF.</span></p>
       </div>
       </section>
 
-      <div id="navigation">
-        <ul>
-          <li><a href="index.html">HOME</a><li>
-          <li class="dropdown-container">
-            <button class="dropdown-btn">CROSSFIT<i class="fa fa-caret-down"></i></button>
-            <ul class="dropdown" style="display: none;">
-              <li><a href="Train Lab.html">TRAIN LAB</a></li>
-              <li><a href="DSR Omega.html">DSR OMEGA</a></li>
-              <li><a href="Superbia.html">SUPERBIA</a></li>
-              <li><a href="GoldenGym.html">GOLDEN GYM</a></li>
-              <li><a href="Crossfit Zagreb.html">CROSSFIT ZAGREB</a></li>
-              <li><a href="Crossfit Heartrate.html">CROSSFIT HEARTRATE</a></li>
-              <li><a href="Crossfit Maksimir">CROSSFIT MAKSIMIR</a></li>
-            </ul>
-          </li>
-          <li class="dropdown-container">
-          <button class="dropdown-btn">WEIGHTLIFTING<i class="fa fa-caret-down"></i></button>
-            <ul class="dropdown" style="display: none;">
-              <li><a href="DK Metalac.html">DK METALAC</a></li>
-            </ul>
-          </li>
-          <li class="dropdown-container">
-            <button class="dropdown-btn">TERETANA<i class="fa fa-caret-down"></i></button>
-            <div class="dropdown">
-              <a href="Gyms4you.html">GYMS4YOU</a><br>
-              <a href="DSR Omega_Teretana.html">DSR OMEGA</a><br>
-              <a href="Play.html">PLAY FITNESS CENTAR</a><br>
-              <a href="Vita.html">VITA FITNESS & SPA</a><br>
-              <a href="Core Gym.html">CORE GYM</a><br>
-              <a href="MoFit.html">MOFIT</a><br>
-              <a href="Forma.html">FITNESS FORMA</a>
-          </div>
-          </li>
-          <li><a href="Kontakt.html">KONTAKT</a><li>
+
+  <div id="navigation">
+    <ul>
+      <li><a href="index.html">HOME</a><li>
+      <li class="dropdown-container">
+        <button class="dropdown-btn">CROSSFIT<i class="fa fa-caret-down"></i></button>
+        <ul class="dropdown" style="display: none;">
+          <li><a href="Train Lab.html">TRAIN LAB</a></li>
+          <li><a href="DSR Omega.html">DSR OMEGA</a></li>
+          <li><a href="Superbia.html">SUPERBIA</a></li>
+          <li><a href="GoldenGym.html">GOLDEN GYM</a></li>
+          <li><a href="Crossfit Zagreb.html">CROSSFIT ZAGREB</a></li>
+          <li><a href="Crossfit Heartrate.html">CROSSFIT HEARTRATE</a></li>
+          <li><a href="Crossfit Maksimir">CROSSFIT MAKSIMIR</a></li>
         </ul>
+      </li>
+      <li class="dropdown-container">
+      <button class="dropdown-btn">WEIGHTLIFTING<i class="fa fa-caret-down"></i></button>
+        <ul class="dropdown" style="display: none;">
+          <li><a href="DK Metalac.html">DK METALAC</a></li>
+        </ul>
+      </li>
+      <li class="dropdown-container">
+        <button class="dropdown-btn">TERETANA<i class="fa fa-caret-down"></i></button>
+        <div class="dropdown">
+          <a href="Gyms4you.html">GYMS4YOU</a><br>
+          <a href="DSR Omega_Teretana.html">DSR OMEGA</a><br>
+          <a href="Play.html">PLAY FITNESS CENTAR</a><br>
+          <a href="Vita.html">VITA FITNESS & SPA</a><br>
+          <a href="Core Gym.html">CORE GYM</a><br>
+          <a href="MoFit.html">MOFIT</a><br>
+          <a href="Forma.html">FITNESS FORMA</a>
       </div>
+      </li>
+      <li><a href="Kontakt.html">KONTAKT</a><li>
+    </ul>
+  </div>
+
+
+  <script>
+      var dropdown = document.getElementsByClassName("dropdown-btn");
+      var i;
+
+      for (i = 0; i < dropdown.length; i++) {
+      dropdown[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var dropdownContent = this.nextElementSibling;
+      if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+      } else {
+      dropdownContent.style.display = "block";
+      }
+    });
+  }
+  </script>
 
 <script type="text/javascript">
     function toggle(){
@@ -283,21 +306,5 @@ header #toggle:after {
     }
 </script>
 
-<script>
-    var dropdown = document.getElementsByClassName("dropdown-btn");
-    var i;
-
-    for (i = 0; i < dropdown.length; i++) {
-    dropdown[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var dropdownContent = this.nextElementSibling;
-    if (dropdownContent.style.display === "block") {
-    dropdownContent.style.display = "none";
-    } else {
-    dropdownContent.style.display = "block";
-    }
-  });
-}
-</script>
 </body>
 </html>
